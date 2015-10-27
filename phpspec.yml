@@ -1,0 +1,5 @@
+suites:
+    main:
+        namespace: AutoResume
+        psr4_prefix: AutoResume
+        src_path: app
