@@ -8,6 +8,7 @@
             'autoresume.config',
             'autoresume.services',
             'autoresume.routes',
-            'autoresume.login'
+            'autoresume.login',
+            'autoresume.home'
         ]);
 })()
