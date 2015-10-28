@@ -23,7 +23,9 @@
         url: '/',
         views: {
           'main': {
-            templateUrl: 'app/templates/views/autoresume/home.html'
+            templateUrl: 'app/templates/views/autoresume/home.html',
+            controller: 'HomeController',
+            controllerAs: 'vm'
           }
         }
       })
