@@ -22,7 +22,7 @@
       .state('autoresume.home', {
         url: '/',
         views: {
-          'main': {
+          'main@': {
             templateUrl: 'app/templates/views/autoresume/home.html',
             controller: 'HomeController',
             controllerAs: 'vm'
