@@ -1,5 +1,22 @@
 <h1> Home </h1>
 
-<button ng-click="vm.authenticate('facebook')">Sign in with Facebook</button>
-<button ng-click="vm.authenticate('github')">Sign in with GitHub</button>
-<button ng-click="vm.authenticate('linkedin')">Sign in with LinkedIn</button>
+  <md-content>
+    <md-list>
+      <md-subheader class="md-no-sticky">Obtain data from</md-subheader>
+
+      <!-- Below is a list with all the different login providers that can be used
+      To sync the data from the user -->
+      <md-list-item>
+    	<md-button class="md-raised md-primary" ng-click="vm.authenticate('facebook')">Obtain data from Facebook</md-button>
+      </md-list-item>
+
+      <md-list-item>
+		<md-button class="md-raised" ng-click="vm.authenticate('github')">Obtain data from GitHub</md-button>
+      </md-list-item>
+
+      <md-list-item>
+		<md-button class="md-raised md-warn" ng-click="vm.authenticate('linkedin')">Obtain data from LinkedIn</md-button>
+      </md-list-item>
+
+  	</md-list>
+</md-content>

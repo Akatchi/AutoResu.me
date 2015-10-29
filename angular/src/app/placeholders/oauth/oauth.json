@@ -1,0 +1,8 @@
+{
+    "data": {
+        "facebook": "enabled",
+        "linkedin": "enabled",
+        "twitter": "disabled",
+        "github": "enabled"
+    }
+}

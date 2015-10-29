@@ -2,7 +2,6 @@
     'use strict';
     angular
         .module('autoresume.services', [
-            'autoresume.jwt',
-            'autoresume.oauth'
+            'autoresume.jwt'
         ]);
 })();

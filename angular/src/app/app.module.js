@@ -7,6 +7,7 @@
             'autoresume.constants',
             'autoresume.config',
             'autoresume.services',
+            'autoresume.factories',
             'autoresume.routes',
             'autoresume.login',
             'autoresume.home'

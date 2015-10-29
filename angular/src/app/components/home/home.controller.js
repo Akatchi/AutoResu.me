@@ -4,14 +4,16 @@
         .module('autoresume.home', [])
         .controller('HomeController', HomeController);
     
-    // HomeController.$inject = ['$log', '$auth'];
+    // HomeController.$inject = ['$log', '$auth', 'oAuth'];
     
     /* @ngInject */
-    function HomeController($log, $auth) {
+    function HomeController($log, $auth, oAuth) {
         var vm = this;
+        vm.data = oAuth.query();
+
+        $log.debug('data: ' + vm.data);
 
         vm.authenticate = function(provider) {
-            $log.debug('Authenticating for provider: ' + provider)
             $auth.authenticate(provider);
         };
     }

@@ -6,7 +6,7 @@
             /**
              * Angular modules
              */
-            'ngCookies', 'ngSanitize', 'ngMessages',
+            'ngCookies', 'ngSanitize', 'ngMessages', 'ngResource',
 
             /**
              * Custom application modules
