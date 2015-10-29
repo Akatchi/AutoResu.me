@@ -3,4 +3,4 @@
 Homestead.yaml
 Homestead.json
 .env
-/angular/src/app/app.config.js
+angular/src/app/app.config.js
