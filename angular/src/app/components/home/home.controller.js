@@ -11,8 +11,6 @@
         var vm = this;
         vm.data = oAuth.query();
 
-        $log.debug('data: ' + vm.data);
-
         vm.authenticate = function(provider) {
             $auth.authenticate(provider);
         };
