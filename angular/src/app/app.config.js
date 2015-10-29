@@ -2,8 +2,9 @@
   'use strict';
 
   angular
-    .module('autoresume.config', [])
-    .config(config);
+    .module('autoresume.config', ['satellizer'])
+    .config(config)
+    .config(oAuthConfig);
     
 
     /** @ngInject */
@@ -22,5 +23,21 @@
         // set the token url we're fetching this here. 
         $authProvider.loginUrl = API_URL + '/authenticate/token';
     }
+
+    function oAuthConfig($authProvider) {
+
+        $authProvider.facebook({
+          clientId: 'Facebook App ID'
+        });
+
+        $authProvider.github({
+          clientId: 'GitHub Client ID'
+        });
+
+        $authProvider.linkedin({
+          clientId: 'LinkedIn Client ID'
+        });
+
+    });
 
 })();

@@ -11,6 +11,7 @@
         var vm = this;
 
         vm.authenticate = function(provider) {
+            $log.debug('Authenticating for provider: ' + provider);
             $auth.authenticate(provider);
         };
     }
