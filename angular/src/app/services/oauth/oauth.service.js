@@ -5,6 +5,6 @@
         .service('oAuthService', oAuthService);
     
     /* @ngInject */
-    function oAuthService($log) {
+    function oAuthService() {
     }
 })();
