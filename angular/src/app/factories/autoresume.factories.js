@@ -3,6 +3,6 @@
     angular
         .module('autoresume.factories', [
             'autoresume.oauth',
-            'autoresume.generator'
+            'autoresume.factory.generator'
         ]);
 })();

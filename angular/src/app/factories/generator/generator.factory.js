@@ -1,7 +1,7 @@
 (function() {
     'use strict';
     angular
-        .module('autoresume.generator', [])
+        .module('autoresume.factory.generator', [])
         .factory('Generator', GeneratorFactory);
 
     // GeneratorFactory.$inject = ['$resource'];
