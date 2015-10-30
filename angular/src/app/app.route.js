@@ -29,8 +29,8 @@
           }
         }
       })
-      .state('generate', {
-        url: '/generate',
+      .state('generator', {
+        url: '/generator',
         views: {
           'main': {
             templateUrl: 'app/templates/views/autoresume/generator.html',
