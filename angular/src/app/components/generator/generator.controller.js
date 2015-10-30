@@ -8,6 +8,7 @@
 
     /* @ngInject */
     function GeneratorController($log) {
+        $log.debug('Generator initialized');
     }
 
 })();
