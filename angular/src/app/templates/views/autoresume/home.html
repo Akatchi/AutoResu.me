@@ -2,7 +2,8 @@
 
 <!-- Below is a list with all the different login providers that can be used
 To sync the data from the user -->
-<em>Json data: </em> {{ vm.data }}<br>
-<md-button class="md-raised md-primary" ng-click="vm.authenticate('facebook')">Obtain data from Facebook</md-button><br>
-<md-button class="md-raised" ng-click="vm.authenticate('github')">Obtain data from GitHub</md-button><br>
-<md-button class="md-raised md-warn" ng-click="vm.authenticate('linkedin')">Obtain data from LinkedIn</md-button><br>
+<div ng-repeat="item in vm.config.data">
+  <div ng-show="item.status  == 'enabled'">
+    <md-button class="md-raised" ng-click="vm.authenticate(item.name)">Obtain data from {{ item.pretty_name }}</md-button><br>
+  </div>
+</div>

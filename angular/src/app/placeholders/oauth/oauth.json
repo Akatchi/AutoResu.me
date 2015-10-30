@@ -1,8 +1,19 @@
 {
     "data": {
-        "facebook": "enabled",
-        "linkedin": "enabled",
-        "twitter": "disabled",
-        "github": "enabled"
+        "facebookConfig": {
+            "name": "facebook",
+            "pretty_name": "Facebook",
+            "status": "enabled"
+        },
+        "linkedin": {
+            "name": "linkedin",
+            "pretty_name": "LinkedIn",
+            "status": "enabled"
+        },
+        "github": {
+            "name": "github",
+            "pretty_name": "Github",
+            "status": "enabled"
+        }
     }
 }
