@@ -10,6 +10,7 @@
             'autoresume.factories',
             'autoresume.routes',
             'autoresume.login',
-            'autoresume.home'
+            'autoresume.home',
+            'autoresume.generator'
         ]);
 })()

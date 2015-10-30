@@ -29,6 +29,16 @@
           }
         }
       })
+      .state('generate', {
+        url: '/generate',
+        views: {
+          'main': {
+            templateUrl: 'app/templates/views/autoresume/generator.html',
+            controller: 'GeneratorController',
+            controllerAs: 'vm'
+          }
+        }
+      })
       .state('login', {
         url: '/login',
         views: {
