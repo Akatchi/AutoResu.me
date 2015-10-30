@@ -29,10 +29,10 @@
           }
         }
       })
-      .state('generator', {
+      .state('autoresume.generator', {
         url: '/generator',
         views: {
-          'main': {
+          'main@': {
             templateUrl: 'app/templates/views/autoresume/generator.html',
             controller: 'GeneratorController',
             controllerAs: 'vm'
