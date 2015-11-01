@@ -1,0 +1,32 @@
+<md-content layout-padding flex="50" flex-offset="25">
+    <form name="vm.signupForm" novalidate>
+        <h1> Signup </h1>
+        <h5> Create an account and get started on that resumé</h5>
+        <md-input-container>
+            <label>First name</label>
+            <input required name="first_name" ng-model="vm.newuser.first_name" type="text" md-maxlength="25">
+            <div ng-messages="vm.signupForm.email.$error" ng-show="!vm.signupForm.$pristine">
+                <div ng-message="required">Required field</div>
+                <div ng-message="maxlength">This seems too long, can you shorten it?</div>
+            </div>
+        </md-input-container>
+        <md-input-container>
+            <label>Email</label>
+            <input required name="email" ng-pattern="/^.+@.+\..+$/" ng-model="vm.newuser.email" type="email">
+            <div ng-messages="vm.signupForm.email.$error" ng-show="!vm.signupForm.$pristine">
+                <div ng-message="required">Required field</div>
+                <div ng-message="pattern">This doesn't look like an email</div>
+                <div ng-message="unique">{{ vm.formErrors.email }}</div>
+            </div>
+        </md-input-container>
+        <md-input-container>
+            <label>Password</label>
+            <input required name="password" ng-model="vm.newuser.password" type="password">
+            <div ng-messages="vm.signupForm.password.$error "ng-show="!vm.signupForm.$pristine">
+                <div ng-message="required">Required field</div>
+            </div>
+        </md-input-container>
+
+        <md-button class="md-raised md-primary" ng-click="vm.signup()">Create</md-button>
+    </form>
+</md-content>

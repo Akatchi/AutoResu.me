@@ -20,7 +20,9 @@
            .defaultFontSet( 'fontawesome' );
 
         // set the token url we're fetching this here. 
-        $authProvider.loginUrl = API_URL + '/authenticate/token';
+        $authProvider.loginUrl = API_URL + 'authenticate/token';
+        $authProvider.tokenPrefix = 'autoresume';
+
 
         // Configure the oAuth provider with our API keys
         configureOAuth($authProvider);
@@ -39,7 +41,6 @@
         $authProvider.linkedin({
           clientId: 'Client ID goes here'
         });
-
     }
 
 })();

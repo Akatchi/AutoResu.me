@@ -3,44 +3,14 @@
 namespace AutoResume\Http\Controllers;
 
 use Illuminate\Http\Request;
+
 use AutoResume\Http\Requests;
 use AutoResume\Http\Controllers\Controller;
-use JWTAuth;
 
-class SessionController extends Controller
+use Auth;
+
+class UserController extends Controller
 {
-    /**
-     * authenticate, handles the authentication for the initial request to login.
-     * 
-     * @param  Request  $request    The login request to handle the authentication
-     * 
-     * @return Response json        The data that came back
-     */
-    public function authenticate(Request $request)
-    {
-        $credentials = $request->only('email', 'password');
-
-        // admin is allowed to enter providers and remove them.
-        $adminClaim = ['admin' => false];
-        
-        try {
-            // attempt to verify the credentials and create a token for the user
-            if (! $token = JWTAuth::attempt($credentials, $adminClaim)) {
-                return response()->json(['error' => 'invalid_credentials'], 401);
-            }
-        } catch (JWTException $e) {
-            // something went wrong whilst attempting to encode the token
-            return response()->json(['error' => 'could_not_create_token'], 500);
-        }
-
-        return response()->json(compact('token'));
-    }
-    
-    public function testme()
-    {
-        return response()->api(compact(['foo' => 'you made it']));
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -48,7 +18,7 @@ class SessionController extends Controller
      */
     public function index()
     {
-        
+        return response()->api(Auth::user());
     }
 
     /**
@@ -58,7 +28,7 @@ class SessionController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**

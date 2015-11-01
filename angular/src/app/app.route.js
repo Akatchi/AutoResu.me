@@ -17,6 +17,9 @@
           'sidebar': {
             templateUrl: 'app/templates/views/template/sidebar.html'
           }
+        },
+        data: {
+          admin: false // these are the generic routes, no admin required.
         }
       })
       .state('autoresume.home', {
@@ -39,13 +42,56 @@
           }
         }
       })
-      .state('login', {
+      .state('autoresume.admin', {
+        abstract: true,
+        url: '/administrator',
+        data: {
+          admin: true
+        }
+      })
+      .state('autoresume.admin.home', {
+        url: '/overview',
+        views: {
+          'main@': {
+            templateUrl: 'app/templates/views/autoresume/admin/home.html',
+            controller: 'AdminHomeController',
+            controllerAs: 'vm'
+          }
+        }
+      })
+      .state('anon', {
+        abstract: true,
+        data: {
+          admin: false
+        },
+        views: {
+          'sidebar': {
+            templateUrl: 'app/templates/views/template/sidebar.html',
+            /* @ngInject */
+            controller: function($scope) {
+              // this needs to be done differently (it flashes still.)
+              $scope.nsidebar = true; // hide the sidebar
+            }
+          }
+        }
+      })    
+      .state('anon.login', {
         url: '/login',
         views: {
-          'main': {
+          'main@': {
             templateUrl: 'app/templates/views/autoresume/login.html',
             controller: 'LoginController',
             controllerAs: 'vm'
+          }
+        }
+      })
+      .state('anon.signup', {
+        url: '/signup',
+        views: {
+          'main@' : {
+            templateUrl: 'app/templates/views/autoresume/signup.html',
+            controller: 'SignupController',
+            'controllerAs': 'vm'
           }
         }
       });

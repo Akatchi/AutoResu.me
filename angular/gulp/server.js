@@ -23,11 +23,7 @@ function browserSyncInit(baseDir, browser) {
 
   var server = {
     baseDir: baseDir,
-    routes: routes,
-    middleware: function (req, res, next) {
-      res.setHeader('Access-Control-Allow-Origin', '*');
-      next();
-    }
+    routes: routes
   };
 
   /*
@@ -37,7 +33,7 @@ function browserSyncInit(baseDir, browser) {
    *
    * For more details and option, https://github.com/chimurai/http-proxy-middleware/blob/v0.0.5/README.md
    */
-  // server.middleware = proxyMiddleware('/users', {target: 'http://jsonplaceholder.typicode.com', proxyHost: 'jsonplaceholder.typicode.com'});
+  // server.middleware = proxyMiddleware('/api', {target: 'http://school.dev/api/', changeOrigin: 'school.dev'});
 
   browserSync.instance = browserSync.init({
     startPath: '/',

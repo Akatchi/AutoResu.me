@@ -6,11 +6,12 @@
             'autoresume.core',
             'autoresume.constants',
             'autoresume.config',
-            'autoresume.services',
             'autoresume.factories',
             'autoresume.routes',
+            'autoresume.signup',
             'autoresume.login',
+            'autoresume.generator',
             'autoresume.home',
-            'autoresume.generator'
+            'autoresume.admin'
         ]);
 })()
