@@ -1,0 +1,34 @@
+{
+  "_comment": [
+
+    "These are the permissions needed",
+    "to create a dataset like the one below",
+    "",
+    "User Data Permissions:",
+    "user_about_me",
+    "user_birthday",
+    "user_likes",
+    "user_photos",
+    "user_relationships",
+    "user_work_history",
+    "user_education_history",
+    "user_location",
+    "user_religion_politics",
+    "user_hometown",
+    "user_status",
+    "user_website",
+    "",
+    "Extended Permissions:",
+    "email",
+    "",
+    "Please use this dataset with great care",
+    "as this is my personal data you are seeing."
+
+  ],
+  "data": {
+    "height": 200,
+    "is_silhouette": false,
+    "url": "https://scontent.xx.fbcdn.net/hprofile-xpf1/v/t1.0-1/p200x200/10500340_713297112104135_6096529267085293974_n.jpg?oh=d774281ff1febcf1723a7a5f8fc082c5&oe=56C19289",
+    "width": 200
+  }
+}

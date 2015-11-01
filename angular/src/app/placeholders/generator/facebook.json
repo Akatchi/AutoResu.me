@@ -1,0 +1,163 @@
+{
+  "_comment": [
+
+    "These are the permissions needed",
+    "to create a dataset like the one below",
+    "",
+    "User Data Permissions:",
+    "user_about_me",
+    "user_birthday",
+    "user_likes",
+    "user_photos",
+    "user_relationships",
+    "user_work_history",
+    "user_education_history",
+    "user_location",
+    "user_religion_politics",
+    "user_hometown",
+    "user_status",
+    "user_website",
+    "",
+    "Extended Permissions:",
+    "email",
+    "",
+    "Please use this dataset with great care",
+    "as this is my personal data you are seeing."
+
+  ],
+  "name": "Ward Holthof",
+  "first_name": "Ward",
+  "last_name": "Holthof",
+  "gender": "male",
+  "birthday": "01/16/1992",
+  "hometown": {
+    "id": "109642985832228",
+    "name": "Groningen"
+  },
+  "location": {
+    "id": "112469485432646",
+    "name": "Bedum"
+  },
+  "email": "s.sleaverson@gmail.com",
+  "website": "http://ward.holthof.info",
+  "relationship_status": "Single",
+  "religion": "Christian",
+  "work": [
+    {
+      "employer": {
+        "id": "299157960106689",
+        "name": "ZINN (Thuis)zorg, Wonen en Welzijn"
+      },
+      "location": {
+        "id": "100242276684010",
+        "name": "Haren, Groningen, Netherlands"
+      },
+      "position": {
+        "id": "366578330022066",
+        "name": "Service Desk"
+      },
+      "start_date": "2013-01-01"
+    },
+    {
+      "employer": {
+        "id": "239391349521006",
+        "name": "Sleaveweb"
+      },
+      "projects": [
+        {
+          "id": "325671840829904",
+          "description": "http://www.modelandfashionevent.nl",
+          "name": "Model and Fashion Event",
+          "start_date": "2012-02-01"
+        },
+        {
+          "id": "366277760084318",
+          "description": "http://www.schooninstallaties.nl",
+          "name": "Schoon Installaties Bedum",
+          "start_date": "2012-01-01"
+        },
+        {
+          "id": "141267872634967",
+          "description": "http://www.wilhelminabedum.nl",
+          "name": "wilhelmina bedum",
+          "start_date": "2010-09-01",
+          "with": [
+            {
+              "name": "Jos Westerhof",
+              "id": "10155048159545472"
+            }
+          ]
+        }
+      ],
+      "start_date": "2010-01-01"
+    },
+    {
+      "end_date": "2012-09-01",
+      "employer": {
+        "id": "299157960106689",
+        "name": "ZINN (Thuis)zorg, Wonen en Welzijn"
+      },
+      "location": {
+        "id": "100242276684010",
+        "name": "Haren, Groningen, Netherlands"
+      },
+      "position": {
+        "id": "103715843016432",
+        "name": "Medewerker ICT"
+      },
+      "start_date": "2012-02-01"
+    }
+  ],
+  "education": [
+    {
+      "school": {
+        "id": "114915131862532",
+        "name": "Groene School Winsum"
+      },
+      "type": "High School",
+      "year": {
+        "id": "141778012509913",
+        "name": "2008"
+      }
+    },
+    {
+      "school": {
+        "id": "106611582707859",
+        "name": "Hanzehogeschool Groningen"
+      },
+      "type": "College",
+      "year": {
+        "id": "127342053975510",
+        "name": "2016"
+      }
+    },
+    {
+      "school": {
+        "id": "111973355486481",
+        "name": "Hanze Institute of Technology"
+      },
+      "type": "College",
+      "year": {
+        "id": "144044875610606",
+        "name": "2011"
+      }
+    },
+    {
+      "school": {
+        "id": "208493429303775",
+        "name": "Alfa College Techniek & ICT Groningen"
+      },
+      "type": "College",
+      "year": {
+        "id": "118118634930920",
+        "name": "2012"
+      }
+    }
+  ],
+  "cover": {
+    "id": "675602429206937",
+    "offset_y": 25,
+    "source": "https://scontent.xx.fbcdn.net/hphotos-xta1/v/t1.0-9/s720x720/11148777_675602429206937_1372480904576658832_n.jpg?oh=931b02ede59cbd2ebdc18a668eb649ee&oe=56D08214"
+  },
+  "id": "677375219029658"
+}

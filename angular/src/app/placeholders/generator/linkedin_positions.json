@@ -1,0 +1,222 @@
+{
+  "_comment": [
+
+    "Please use this dataset with great care",
+    "as this is my personal data you are seeing."
+
+  ],
+  "educations": {
+    "_total": 3,
+    "values": [
+      {
+        "degree": "Bachelor's degree",
+        "endDate": {
+          "year": 2015
+        },
+        "fieldOfStudy": "Information Technology",
+        "id": 133780836,
+        "schoolName": "Hanzehogeschool Groningen",
+        "startDate": {
+          "year": 2011
+        }
+      },
+      {
+        "activities": "Netwerkbeheer, Hardware Software beheer, Cisco, MCSE, Linux, ICT 2.0, HTML, PHP, CSS, Javascript, Mysql (database ontwikkeling), Oracle, Programmeren, System testing, Logica, Wiskunde, Nederlands, Engels",
+        "degree": "ICT Beheerder",
+        "endDate": {
+          "year": 2012
+        },
+        "fieldOfStudy": "IT Beheer",
+        "id": 64074843,
+        "schoolName": "Alfa College Techniek en ICT Groningen",
+        "startDate": {
+          "year": 2008
+        }
+      },
+      {
+        "degree": "VMBO GL / TL",
+        "endDate": {
+          "year": 2008
+        },
+        "id": 72928537,
+        "schoolName": "AOC Terra, Groene School Winsum",
+        "startDate": {
+          "year": 2004
+        }
+      }
+    ]
+  },
+  "id": "oI46Gk8GNr",
+  "positions": {
+    "_total": 9,
+    "values": [
+      {
+        "company": {
+          "id": 870483,
+          "industry": "Hospital & Health Care",
+          "name": "ZINN (Zorgorganisatie in Noord Nederland)",
+          "size": "1001-5000 employees",
+          "ticker": "",
+          "type": "Nonprofit"
+        },
+        "id": 470588606,
+        "isCurrent": true,
+        "startDate": {
+          "month": 6,
+          "year": 2013
+        },
+        "summary": "Aannemen en registreren van 1e lijns calls. Oplossen van 1e lijns calls (indien nodig op locatie). Oproepdiensten buiten openingstijden.",
+        "title": "Medewerker Servicedesk"
+      },
+      {
+        "company": {
+          "id": 12836,
+          "industry": "Higher Education",
+          "name": "Hanzehogeschool Groningen / Hanze University of Applied Sciences Groningen",
+          "size": "1001-5000 employees",
+          "type": "Educational Institution"
+        },
+        "id": 217239137,
+        "isCurrent": true,
+        "startDate": {
+          "year": 2011
+        },
+        "title": "Student"
+      },
+      {
+        "company": {
+          "name": "Sleaveweb"
+        },
+        "id": 164514699,
+        "isCurrent": true,
+        "startDate": {
+          "month": 11,
+          "year": 2010
+        },
+        "summary": "Sleaveweb is gespecialiseerd in het hosten, ontwikkelen, en onderhouden van websites en webapplicaties.",
+        "title": "Owner"
+      },
+      {
+        "company": {
+          "id": 870483,
+          "industry": "Hospital & Health Care",
+          "name": "ZINN (Zorgorganisatie in Noord Nederland)",
+          "size": "1001-5000 employees",
+          "ticker": "",
+          "type": "Nonprofit"
+        },
+        "endDate": {
+          "month": 2,
+          "year": 2014
+        },
+        "id": 534104868,
+        "isCurrent": false,
+        "startDate": {
+          "month": 10,
+          "year": 2013
+        },
+        "summary": "Duidelijke inventaris maken van de complete netwerk omgeving. In kaart brengen welke systemen en services gemonitord moesten worden door SCOM. Uitzoeken hoe belangrijke services en systemen gemonitord kunnen worden en welke acties ondernomen moeten worden bij fouten.",
+        "title": "Intern"
+      },
+      {
+        "company": {
+          "id": 870483,
+          "industry": "Hospital & Health Care",
+          "name": "ZINN (Zorgorganisatie in Noord Nederland)",
+          "size": "1001-5000 employees",
+          "ticker": "",
+          "type": "Nonprofit"
+        },
+        "endDate": {
+          "month": 8,
+          "year": 2012
+        },
+        "id": 265098795,
+        "isCurrent": false,
+        "startDate": {
+          "month": 2,
+          "year": 2012
+        },
+        "summary": "Internship ICT Network Administrator / ICT Servicedesk.",
+        "title": "Intern"
+      },
+      {
+        "company": {
+          "id": 41736,
+          "industry": "Education Management",
+          "name": "Alfa-college",
+          "size": "1001-5000 employees",
+          "type": "Educational Institution"
+        },
+        "endDate": {
+          "month": 7,
+          "year": 2012
+        },
+        "id": 166218074,
+        "isCurrent": false,
+        "startDate": {
+          "month": 8,
+          "year": 2008
+        },
+        "summary": "Student ICT Administration Level 4  MBO",
+        "title": "Student"
+      },
+      {
+        "company": {
+          "name": "Tooladmin"
+        },
+        "endDate": {
+          "month": 3,
+          "year": 2012
+        },
+        "id": 217241056,
+        "isCurrent": false,
+        "startDate": {
+          "month": 7,
+          "year": 2011
+        },
+        "summary": "A web application to make life a little easier. Tool registration service.",
+        "title": "Owner"
+      },
+      {
+        "company": {
+          "id": 101999,
+          "industry": "Retail",
+          "name": "Hornbach Baumarkt AG",
+          "size": "10,001+ employees",
+          "ticker": "",
+          "type": "Public Company"
+        },
+        "endDate": {
+          "month": 11,
+          "year": 2010
+        },
+        "id": 166188982,
+        "isCurrent": false,
+        "startDate": {
+          "month": 7,
+          "year": 2010
+        },
+        "title": "Medewerker"
+      },
+      {
+        "company": {
+          "id": 6054469,
+          "name": "Bimpel",
+          "size": "1-10 employees"
+        },
+        "endDate": {
+          "month": 7,
+          "year": 2010
+        },
+        "id": 671907386,
+        "isCurrent": false,
+        "startDate": {
+          "month": 2,
+          "year": 2010
+        },
+        "title": "Intern"
+      }
+    ]
+  }
+}
