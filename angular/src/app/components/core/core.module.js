@@ -6,7 +6,7 @@
             /**
              * Angular modules
              */
-            'ngCookies', 'ngSanitize', 'ngMessages', 'ngResource',
+            'ngCookies', 'ngSanitize', 'ngMessages', 'ngResource', 'ngAnimate', 
 
             /**
              * Custom application modules
@@ -15,7 +15,7 @@
             /**
              * 3rd party modules
              */
-            'ngStorage', 'restangular', 'ui.router', 'ngMaterial', 'satellizer'
+            'ngStorage', 'restangular', 'ui.router', 'ngMaterial', 'satellizer', 'angular-loading-bar'
         ])
         .config(config)
 

@@ -23,7 +23,7 @@
     <!--[if lt IE 10]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-    <md-sidenav ng-hide="'login' | isState"
+    <md-sidenav ng-cloak ng-hide="nsidebar"
         class="site-sidebar md-sidenav-left md-whiteframe-z2"
         md-component-id="left"
         md-is-locked-open="$mdMedia('gt-md')" ui-view="sidebar">

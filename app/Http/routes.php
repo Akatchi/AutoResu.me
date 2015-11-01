@@ -15,11 +15,19 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
 /** Api Endpoints */
 $api = app('Dingo\Api\Routing\Router');
-
-// Group the routes for this version
 $api->version('v1', function ($api) {
-    $api->post('authenticate/token', 'AutoResume\Http\Controllers\SessionController@authenticate');
+    $api->group(['namespace' => 'AutoResume\Http\Controllers'], function($api){
+        $api->group(['middleware' => 'cors'], function($api){
+            // Group the routes for this version
+            $api->post('authenticate/token', 'SessionController@authenticate');
+            $api->post('register', 'RegisterController@store');
+
+            $api->group(['middleware' => 'jwt.auth'], function($api){
+                $api->resource('user', 'UserController');
+
+            });
+        });
+    });
 });
