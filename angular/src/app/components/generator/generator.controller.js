@@ -7,8 +7,15 @@
     // GeneratorController.$inject = ['$log', 'Generator'];
 
     /* @ngInject */
-    function GeneratorController($scope, Generator) {
+    function GeneratorController(Generator) {
         var vm = this;
+
+
+        vm.removeText = 'Remove';
+        vm.undoText = 'Undo';
+        vm.addText = 'Add';
+
+
 
         /* 
          * We get json data from each provider.
@@ -17,10 +24,12 @@
          * that we can easily use and filter in our view
          */
 
-        Generator.getFacebook().success(function(data) {
-            // For now we just add it to the scope
-            $scope.fbData = data;
-        });
+/* Ignore this!
+ * Wanted to make this work
+ * witout a functioning back-end.
+
+        // For now we just add it to the scope
+        vm.fbData = Generator.getFacebook();
 
         Generator.getFacebookImages().success(function(data) {
             // For now we just add it to the scope
@@ -51,6 +60,10 @@
             // For now we just add it to the scope
             $scope.gitRepos = data;
         });
+*/
+        Generator.getAllData().success(function(data) {
+            // For now we just add it to the scope
+            vm.data = data;
+        });
     }
-
 })();

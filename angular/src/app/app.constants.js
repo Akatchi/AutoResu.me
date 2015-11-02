@@ -3,6 +3,6 @@
 
   angular
     .module('autoresume.constants', [])
-    .constant('API_URL', 'http://school.dev/api/');
+    .constant('API_URL', 'http://localhost:8000/api/');
 
 })();

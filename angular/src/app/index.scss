@@ -26,3 +26,18 @@
  */
 // injector
 // endinjector
+
+/* Additional CSS */
+#gen-container { width: 90%; margin: 0 auto; }
+
+#pictures { margin: 20px 0; }
+#pictures div.picture { float: left; display: block; max-width: 200px; margin: 0 20px 20px 0; }
+#pictures span.picture img { width: 200px; height: 200px; border: 1px solid black; }
+
+.picture {
+	-webkit-transition:all linear 0.5s;
+	transition:all linear 0.5s;
+}
+.picture.ng-hide img { opacity:0 }
+
+h2.gen-title { width: 100%; border-bottom: 1px solid #000; margin: 0 auto; }
