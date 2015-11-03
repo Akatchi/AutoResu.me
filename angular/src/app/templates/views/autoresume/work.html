@@ -1,0 +1,30 @@
+<md-content layout-padding flex="50" flex-offset="25">
+    <form name="vm.workForm">
+        <h1> Work </h1>
+
+        <md-input-container ng-repeat="work in vm.work.work">
+        <md-card>
+          <md-card-content>
+            <h2 class="md-title">{{ work.employer }}</h2>
+            <p>
+              <b>Location :</b> {{ work.location }}<br>
+              <b>Position :</b> {{ work.position }}<br>
+              <b>Description :</b> {{ work.description }}<br>
+              <b>Start date: </b> {{ work.start_date }}<br>
+              <b>End date: </b> {{ work.end_date }}
+            </p>
+          </md-card-content>
+          <div class="md-actions" layout="row" layout-align="end center">
+            <md-checkbox ng-model="work.enabled" aria-label="Enabled" class="md-primary">
+                Enabled
+            </md-checkbox>
+            <md-button>Update</md-button>
+            <md-button>Delete</md-button>
+          </div>
+        </md-card>
+        </md-input-container>
+
+        <md-button class="md-raised md-primary" ng-click="vm.create()">Add new work entry</md-button>
+        <md-button class="md-raised md-primary" ng-click="vm.update()">Update</md-button>
+    </form>
+</md-content>
