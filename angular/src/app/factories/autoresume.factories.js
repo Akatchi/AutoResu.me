@@ -7,6 +7,7 @@
             'autoresume.factory.user',
             'autoresume.factory.register',
             'autoresume.factory.work',
-            'autoresume.factory.education'
+            'autoresume.factory.education',
+            'autoresume.factory.skills'
         ]);
 })();

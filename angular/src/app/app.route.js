@@ -82,6 +82,26 @@
           }
         }
       })
+      .state('autoresume.skills', {
+        url: '/skills',
+        views: {
+          'main@': {
+            templateUrl: 'app/templates/views/autoresume/skills.html',
+            controller: 'SkillsController',
+            controllerAs: 'vm'
+          }
+        }
+      })
+      .state('autoresume.skills.add', {
+        url: '/add',
+        views: {
+          'main@': {
+            templateUrl: 'app/templates/views/autoresume/add_skills.html',
+            controller: 'AddSkillsController',
+            controllerAs: 'vm'
+          }
+        }
+      })
       .state('autoresume.admin', {
         abstract: true,
         url: '/administrator',
