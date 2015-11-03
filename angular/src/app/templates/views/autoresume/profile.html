@@ -1,0 +1,95 @@
+<md-content layout-padding flex="50" flex-offset="25">
+    <form name="vm.registerForm" novalidate>
+        <h1> Profile </h1>
+        <h5> Update your profile below with that that can be displayed on your resume! </h5>
+        <md-input-container>
+            <label>First name</label>
+            <input required name="first_name" ng-model="vm.user.first_name" type="text" md-maxlength="25">
+            <div ng-messages="vm.registerForm.first_name.$error" ng-show="!vm.registerForm.$pristine">
+                <div ng-message="required">Required field</div>
+                <div ng-message="maxlength">This seems too long, can you shorten it?</div>
+            </div>
+        </md-input-container>
+        <md-input-container>
+            <label>Last name</label>
+            <input required name="last_name" ng-model="vm.user.last_name" type="text" md-maxlength="25">
+            <div ng-messages="vm.registerForm.last_name.$error" ng-show="!vm.registerForm.$pristine">
+                <div ng-message="required">Required field</div>
+                <div ng-message="maxlength">This seems too long, can you shorten it?</div>
+            </div>
+        </md-input-container>
+        <md-input-container>
+            <label>Email</label>
+            <input required name="email" ng-pattern="/^.+@.+\..+$/" ng-model="vm.user.email" type="email">
+            <div ng-messages="vm.registerForm.email.$error" ng-show="!vm.registerForm.$pristine">
+                <div ng-message="required">Required field</div>
+                <div ng-message="pattern">This doesn't look like an email</div>
+            </div>
+        </md-input-container>
+        <md-input-container>
+            <label>Address</label>
+            <input required name="address" ng-model="vm.user.address" type="text" md-maxlength="50">
+            <div ng-messages="vm.registerForm.address.$error" ng-show="!vm.registerForm.$pristine">
+                <div ng-message="required">Required field</div>
+                <div ng-message="maxlength">This seems too long, can you shorten it?</div>
+            </div>
+        </md-input-container>
+        <md-input-container>
+            <label>Postal Code</label>
+            <input required name="postal_code" ng-model="vm.user.postal_code" type="text" ng-pattern="/^[0-9]{4}[A-Z]{2}$/" md-maxlength="6">
+            <div ng-messages="vm.registerForm.postal_code.$error" ng-show="!vm.registerForm.$pristine">
+                <div ng-message="required">Required field</div>
+                <div ng-message="maxlength">This seems too long, can you shorten it?</div>
+                <div ng-message="pattern" class="my-message">That doesn't look like a valid postalcode.</div>
+            </div>
+        </md-input-container>
+        <md-input-container>
+            <label>Location</label>
+            <input required name="location" ng-model="vm.user.location" type="text" md-maxlength="25">
+            <div ng-messages="vm.registerForm.location.$error" ng-show="!vm.registerForm.$pristine">
+                <div ng-message="required">Required field</div>
+                <div ng-message="maxlength">This seems too long, can you shorten it?</div>
+            </div>
+        </md-input-container>
+        <md-input-container>
+        	<h4>Birthday</h4>
+        	<md-datepicker ng-model="vm.user.birthday" md-placeholder="Birthday"></md-datepicker>
+        </md-input-container>
+        <md-input-container>
+            <label>Birthplace</label>
+            <input required name="birthplace" ng-model="vm.user.birthplace" type="text" md-maxlength="25">
+            <div ng-messages="vm.registerForm.birthplace.$error" ng-show="!vm.registerForm.$pristine">
+                <div ng-message="required">Required field</div>
+                <div ng-message="maxlength">This seems too long, can you shorten it?</div>
+            </div>
+        </md-input-container>
+        <md-input-container>
+            <h4>Gender</h4>
+            <md-radio-group ng-model="vm.user.gender" name="gender" required>
+      			<md-radio-button value="male" class="md-primary">Male</md-radio-button>
+  				<md-radio-button value="female" class="md-primary">Female</md-radio-button>
+    		</md-radio-group>
+            <div ng-messages="vm.registerForm.gender.$error "ng-show="!vm.registerForm.$pristine">
+                <div ng-message="required">Required field</div>
+            </div>
+        </md-input-container>
+        <md-input-container>
+ 			<label>Biography</label>
+			<textarea ng-model="vm.user.bio" columns="1" md-maxlength="150"></textarea>
+			<div ng-messages="vm.registerForm.birthplace.$error" ng-show="!vm.registerForm.$pristine">
+                <div ng-message="required">Required field</div>
+                <div ng-message="maxlength">This seems too long, can you shorten it?</div>
+            </div>
+ 		</md-input-container>
+        <md-input-container>
+            <label>Website</label>
+            <input required name="website" ng-model="vm.user.website" type="text" md-maxlength="50">
+            <div ng-messages="vm.registerForm.website.$error" ng-show="!vm.registerForm.$pristine">
+                <div ng-message="required">Required field</div>
+                <div ng-message="maxlength">This seems too long, can you shorten it?</div>
+            </div>
+        </md-input-container>
+
+        <md-button class="md-raised md-primary" ng-click="vm.save()">Update</md-button>
+    </form>
+</md-content>
