@@ -5,16 +5,15 @@
         .controller('WorkController', WorkController);
 
     /* @ngInject */
-    function WorkController($log, RegisterService, $mdToast, $state, $auth) {
+    function WorkController($log, WorkService, $mdToast, $state, $auth) {
         var vm = this;
-        // function to sign a user up
-        vm.signup = signup;
-        // the new user object that we can reference
-        vm.newuser = {};
+
+        vm.update = update;
         // the form errors which come bakc from the api.
         vm.formErrors = {};
 
-        vm.work = {
+        // TOOD retrieve all the work entries from the server
+        vm.workList = {
             "work": [
                 {
                     "id": 1,
@@ -50,45 +49,45 @@
                 }
             ]
         }
+
+        vm.deleteWork = function(workId) {
+            WorkService.delete(workId).$promise.then(
+                function(response) {
+                    $mdToast.show($mdToast.simple().content('Work entry deleted').hideDelay(3000).position('bottom right'));        
+                }, function(error) {
+                    $log.debug(error);
+                    $mdToast.show($mdToast.simple().content('Something went wrong, please try again').hideDelay(3000).position('bottom right'));        
+                }
+            );
+        };
+
+        vm.create = function() {
+            $state.go('autoresume.work.add');
+        };
         
         /**
          * signup, handles the signup for any user
          * This raises errors in case we have any from the API.
          * If response is correct it redirects to the home page.
          */
-        function signup(){
+        function update(){
             // somebody submitted the form and its valid            
-            if(vm.signupForm.$valid) {
+            if(vm.workForm.$valid) {
                 // perform the call to the api with the user.
-                RegisterService.save(vm.newuser).$promise.then(
+                WorkService.update(vm.work).$promise.then(
                     function(response) {
-                        var newUser = {
-                            email: response.data.email,
-                            password: vm.newuser.password
-                        };
-
-                        // log the user in (get the token)
-                        $auth.login(newUser).then(function(){
-                            // response OK
-                            
-                            // response went OK so lets redirect home
-                            $state.go('autoresume.home');
-                        }, function(error) {
-                            $log.debug(error);
-                            // bad response somethign went wrong
-                            $mdToast.show($mdToast.simple().content('Something went wrong, please try again').hideDelay(3000).position('bottom right'));
-                        });
-
+                        // response went OK so lets reload the page
+                        $state.go('autoresume.work');
                     }, function(error) {
-                        vm.formErrors = {}; // reset the errors in case this gives more than one errors
-                        vm.formErrors.email = error.data.email[0];
-                        vm.signupForm.email.$setValidity('unique', false);
+                        $log.debug(error);
+                        // bad response somethign went wrong
+                        $mdToast.show($mdToast.simple().content('Something went wrong, please try again').hideDelay(3000).position('bottom right'));
                     }
                 );
             }
 
             // set the form back to dirty coz somebody tried to submit.
-            vm.signupForm.$setDirty();
+            vm.workForm.$setDirty();
         }
     }
 })();

@@ -13,6 +13,7 @@
             'autoresume.generator',
             'autoresume.home',
             'autoresume.admin',
-            'autoresume.work'
+            'autoresume.work',
+            'autoresume.work.add'
         ]);
 })()

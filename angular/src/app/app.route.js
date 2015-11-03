@@ -52,6 +52,16 @@
           }
         }
       })
+      .state('autoresume.work.add', {
+        url: '/add',
+        views: {
+          'main@': {
+            templateUrl: 'app/templates/views/autoresume/add_work.html',
+            controller: 'AddWorkController',
+            controllerAs: 'vm'
+          }
+        }
+      })
       .state('autoresume.admin', {
         abstract: true,
         url: '/administrator',
