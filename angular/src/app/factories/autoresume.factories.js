@@ -6,6 +6,7 @@
             'autoresume.factory.generator',
             'autoresume.factory.user',
             'autoresume.factory.register',
-            'autoresume.factory.work'
+            'autoresume.factory.work',
+            'autoresume.factory.education'
         ]);
 })();

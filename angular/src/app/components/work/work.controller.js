@@ -74,7 +74,7 @@
             // somebody submitted the form and its valid            
             if(vm.workForm.$valid) {
                 // perform the call to the api with the user.
-                WorkService.update(vm.work).$promise.then(
+                WorkService.update(vm.workList).$promise.then(
                     function(response) {
                         // response went OK so lets reload the page
                         $state.go('autoresume.work');

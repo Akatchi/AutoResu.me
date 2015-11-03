@@ -8,7 +8,7 @@
                 <md-input-container>
                   <label>Employer</label>
                   <input required name="employer" ng-model="work.employer" type="text" md-maxlength="50">
-                  <div ng-messages="vm.workForm.employer.$error" ng-show="!vm.signupForm.$pristine">
+                  <div ng-messages="vm.workForm.employer.$error" ng-show="!vm.workForm.$pristine">
                     <div ng-message="required">Required field</div>
                     <div ng-message="maxlength">This seems too long, can you shorten it?</div>
                   </div>
@@ -16,14 +16,14 @@
                 <md-input-container>
                   <label>Location</label>
                   <input name="location" ng-model="work.location" type="text" md-maxlength="50">
-                  <div ng-messages="vm.workForm.location.$error" ng-show="!vm.signupForm.$pristine">
+                  <div ng-messages="vm.workForm.location.$error" ng-show="!vm.workForm.$pristine">
                     <div ng-message="maxlength">This seems too long, can you shorten it?</div>
                   </div>
                 </md-input-container>
                 <md-input-container>
                   <label>Position</label>
                   <input required name="position" ng-model="work.position" type="text" md-maxlength="50">
-                  <div ng-messages="vm.workForm.position.$error" ng-show="!vm.signupForm.$pristine">
+                  <div ng-messages="vm.workForm.position.$error" ng-show="!vm.workForm.$pristine">
                     <div ng-message="required">Required field</div>
                     <div ng-message="maxlength">This seems too long, can you shorten it?</div>
                   </div>

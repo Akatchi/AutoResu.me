@@ -42,6 +42,26 @@
           }
         }
       })
+      .state('autoresume.education', {
+        url: '/education',
+        views: {
+          'main@': {
+            templateUrl: 'app/templates/views/autoresume/education.html',
+            controller: 'EducationController',
+            controllerAs: 'vm'
+          }
+        }
+      })
+      .state('autoresume.education.add', {
+        url: '/add',
+        views: {
+          'main@': {
+            templateUrl: 'app/templates/views/autoresume/add_education.html',
+            controller: 'AddEducationController',
+            controllerAs: 'vm'
+          }
+        }
+      })
       .state('autoresume.work', {
         url: '/work',
         views: {

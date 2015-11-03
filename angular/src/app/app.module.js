@@ -14,6 +14,8 @@
             'autoresume.home',
             'autoresume.admin',
             'autoresume.work',
-            'autoresume.work.add'
+            'autoresume.work.add',
+            'autoresume.education',
+            'autoresume.education.add'
         ]);
 })()
