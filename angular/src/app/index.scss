@@ -27,10 +27,25 @@
 // injector
 // endinjector
 
-/* Additional CSS */
-#gen-container { width: 90%; margin: 0 auto; }
+/* Generator page */				/* a4 feel */
+#gen-container { width: 90%; max-width: 900px; margin: 0 auto; margin-bottom: 40px; }
 
-#pictures { margin: 20px 0; }
+/* General */
+#gen-container a, #gen-container a:visited, #gen-container a:hover, #gen-container a:link { color: #000; text-decoration: none; }
+#gen-container a:hover { text-decoration: underline; }
+
+div.clear { clear: both; }
+
+h2.gen-title { width: 100%; border-bottom: 1px solid #000; margin: 0 auto; margin-bottom: 10px; margin-top: 5px; font-size: 1.4em; }
+h3.gen-sub-title { font-size: 1.1em; margin: 5px 0; }
+
+.item p, .item label { display: inline; }
+
+/* The different parts */
+#pictures { margin: 6px 40px 20px 0; width: 200px; float: left; }
+#personal { margin: 0px 0 20px 0; width: calc(100% - 240px); float: left; }
+#bio { width: calc(100% - 240px); float: right; }
+
 #pictures div.picture { float: left; display: block; max-width: 200px; margin: 0 20px 20px 0; }
 #pictures span.picture img { width: 200px; height: 200px; border: 1px solid black; }
 
@@ -40,4 +55,38 @@
 }
 .picture.ng-hide img { opacity:0 }
 
-h2.gen-title { width: 100%; border-bottom: 1px solid #000; margin: 0 auto; }
+#personal {
+	-webkit-column-count: 2;
+	-moz-column-count: 2;
+	column-count: 2;
+
+}
+#personal .item { margin-top: 4px; }
+
+#employment table tr.second td { padding: 5px 0 25px 0; }
+#employment table tr td { padding-right: 10px; }
+#employment table .date { width: 200px; font-style: italic; font-size: 0.8em; text-align: left; }
+#employment table .employer { width: calc(100% - 480px); font-weight: bolder; font-size: 0.9em; text-align: left; }
+#employment table .industry { width: 250px; font-size: 0.9em; text-align: right; }
+#employment table .position { width: 200px; font-style: italic; font-size: 0.9em; text-align: left; vertical-align: top; }
+#employment table .desc { width: calc(100% - 200px); text-align: left; }
+
+#education table tr.second td { padding: 5px 0 25px 0; }
+#education table tr td { padding-right: 10px; }
+#education table .date { width: 200px; font-style: italic; font-size: 0.8em; text-align: left; }
+#education table .school { width: calc(100% - 530px); font-weight: bolder; font-size: 0.9em; text-align: left; }
+#education table .type { width: 300px; font-size: 0.9em; text-align: right; }
+#education table .degree { width: 200px; font-style: italic; font-size: 0.9em; text-align: left; vertical-align: top; }
+#education table .activities { width: calc(100% - 200px); text-align: left; }
+
+#skills #work_skills table tr td { padding: 5px 10px 25px 0 ; }
+#skills #work_skills table td.skills { width: 200px; }
+#skills #work_skills table td.level { width: calc(100% - 220px); }
+
+#skills ul, #languages ul, #hobbies ul { margin: 0 0 25px 0; }
+
+#gen-container .submit_form { width: 100%; text-align: center; }
+#gen-container .submit_form label,
+#gen-container .submit_form input,
+#gen-container .submit_form button.md-primary { display: block; margin: 0 auto; width: 200px; }
+#gen-container .submit_form button.md-primary { margin-top: 8px; width: 206px; font-weight: bolder; }

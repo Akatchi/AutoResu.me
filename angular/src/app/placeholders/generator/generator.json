@@ -1,49 +1,132 @@
 {
-	"facebook": {
-		"firstName": "Ward",
-		"lastName": "Holthof",
+	"data": {
+		"first_name": "Ward",
+		"last_name": "Holthof",
 		"gender": "male",
 		"birthday": "01/16/1992",
 		"birthplace": "Groningen",
+		"address": "Sperwer 14",
+		"postalcode": "9781 XR",
 		"location": "Bedum",
 		"email": "s.sleaverson@gmail.com",
 		"website": "http://ward.holthof.info",
-		"relationship": "Single",
-		"religion": "Christian",
-		"bio": "",
+		"bio": "Ik ben een energiek persoon die ervan houdt met mensen in gesprek te gaan. Bij uitdagingen ga ik dan ook maar wat graag in overleg om gezamenlijk tot de beste oplossing te komen. Mijn ondernemende geest zorgt ervoor dat ik constant bezig ben met het ontwikkelen van nieuwe producten dan wel bezig ben met het bedenken van manieren om huidige producten te optimaliseren.",
+		"cover_photo": "https://scontent.xx.fbcdn.net/hphotos-xta1/v/t1.0-9/s720x720/11148777_675602429206937_1372480904576658832_n.jpg?oh=931b02ede59cbd2ebdc18a668eb649ee&oe=56D08214",
+		"profile_photo": "https://scontent.xx.fbcdn.net/hprofile-xpf1/v/t1.0-1/p200x200/10500340_713297112104135_6096529267085293974_n.jpg?oh=d774281ff1febcf1723a7a5f8fc082c5&oe=56C19289",
 		"work": [
 			{
 				"employer": "ZINN (Thuis)zorg, Wonen en Welzijn",
 				"location": "Haren, Groningen, Netherlands",
 				"position": "Service Desk",
 				"description": "",
-				"startDate": "2013-01-01",
-				"endDate": ""
+				"start_date": "2013-01-01",
+				"end_date": ""
 			},
 			{
 				"employer": "Sleaveweb",
 				"location": "Bedum, Groningen, Netherlands",
 				"position": "Founder",
 				"description": "",
-				"startDate": "2010-01-01",
-				"endDate": "",
+				"start_date": "2010-01-01",
+				"end_date": "",
 				"projects": [
 					{
 						"description": "http://www.modelandfashionevent.nl",
 						"name": "Model and Fashion Event",
-						"startDate": "2012-01-01"
+						"start_date": "2012-01-01"
 					},
 					{
 						"description": "http://www.schooninstallaties.nl",
 						"name": "Schoon Installaties Bedum",
-						"startDate": "2012-01-01"
+						"start_date": "2012-01-01"
 					},
 					{
 						"description": "http://www.wilhelminabedum.nl",
 						"name": "Wilhelmina Bedum",
-						"startDate": "2010-09-01"
+						"start_date": "2010-09-01"
 					}
 				]
+			},
+			{
+				"employer": "ZINN (Zorgorganisatie in Noord Nederland)",
+				"location": "",
+				"industry": "Hospital & Health Care",
+				"position": "Medewerker Servicedesk",
+				"description": "Aannemen en registreren van 1e lijns calls. Oplossen van 1e lijns calls (indien nodig op locatie). Oproepdiensten buiten openingstijden.",
+				"start_date": "2013-06-01",
+				"end_date": ""
+			},
+			{
+				"employer": "Hanzehogeschool Groningen / Hanze University of Applied Sciences Groningen",
+				"location": "",
+				"industry": "Higher Education",
+				"position": "Student",
+				"description": "",
+				"start_date": "2011-01-01",
+				"end_date": ""
+			},
+			{
+				"employer": "Sleaveweb",
+				"location": "",
+				"industry": "",
+				"position": "Owner",
+				"description": "Sleaveweb is gespecialiseerd in het hosten, ontwikkelen, en onderhouden van websites en webapplicaties.",
+				"start_date": "2010-11-01",
+				"end_date": ""
+			},
+			{
+				"employer": "ZINN (Zorgorganisatie in Noord Nederland)",
+				"location": "",
+				"industry": "Hospital & Health Care",
+				"position": "Intern",
+				"description": "Duidelijke inventaris maken van de complete netwerk omgeving. In kaart brengen welke systemen en services gemonitord moesten worden door SCOM. Uitzoeken hoe belangrijke services en systemen gemonitord kunnen worden en welke acties ondernomen moeten worden bij fouten.",
+				"start_date": "2013-10-01",
+				"end_date": "2014-02-01"
+			},
+			{
+				"employer": "ZINN (Zorgorganisatie in Noord Nederland)",
+				"location": "",
+				"industry": "Hospital & Health Care",
+				"position": "Intern",
+				"description": "Internship ICT Network Administrator / ICT Servicedesk.",
+				"start_date": "2012-02-01",
+				"end_date": "2012-08-01"
+			},
+			{
+				"employer": "Alfa-college",
+				"location": "",
+				"industry": "Education Management",
+				"position": "Student",
+				"description": "",
+				"start_date": "2008-08-01",
+				"end_date": "2012-01-01"
+			},
+			{
+				"employer": "Tooladmin",
+				"location": "",
+				"industry": "",
+				"position": "Owner",
+				"description": "A web application to make life a little easier. Tool registration service.",
+				"start_date": "2011-07-01",
+				"end_date": "2012-03-01"
+			},
+			{
+				"employer": "Hornbach Baumarkt AG",
+				"location": "",
+				"industry": "Retail",
+				"position": "Medewerker",
+				"description": "",
+				"start_date": "2010-07-01",
+				"end_date": "2010-11-01"
+			},
+			{
+				"employer": "Bimpel",
+				"location": "",
+				"industry": "",
+				"position": "Intern",
+				"description": "",
+				"start_date": "2010-02-01",
+				"end_date": "2010-07-01"
 			}
 		],
 		"education": [
@@ -52,8 +135,8 @@
 				"school": "Groene School Winsum",
 				"type": "High School",
 				"field": "",
-				"startDate": "",
-				"endDate": "2008-01-01",
+				"start_date": "",
+				"end_date": "2008-01-01",
 				"activities": ""
 			},
 			{
@@ -61,8 +144,8 @@
 				"school": "Hanzehogeschool Groningen",
 				"type": "College",
 				"field": "",
-				"startDate": "",
-				"endYear": "2012-01-01",
+				"start_date": "",
+				"end_date": "2012-01-01",
 				"activities": ""
 			},
 			{
@@ -70,109 +153,17 @@
 				"school": "Alfa College Techniek & ICT Groningen",
 				"type": "College",
 				"field": "",
-				"startDate": "",
-				"endYear": "2012-01-01",
+				"start_date": "",
+				"end_date": "2012-01-01",
 				"activities": ""
-			}
-		],
-		"coverPhoto": "https://scontent.xx.fbcdn.net/hphotos-xta1/v/t1.0-9/s720x720/11148777_675602429206937_1372480904576658832_n.jpg?oh=931b02ede59cbd2ebdc18a668eb649ee&oe=56D08214",
-		"profilePhoto": "https://scontent.xx.fbcdn.net/hprofile-xpf1/v/t1.0-1/p200x200/10500340_713297112104135_6096529267085293974_n.jpg?oh=d774281ff1febcf1723a7a5f8fc082c5&oe=56C19289"
-	},
-	"linkedin": {
-		"firstName": "Ward",
-		"lastName": "Holthof",
-		"bio": "",
-		"work": [
-			{
-				"employer": "ZINN (Zorgorganisatie in Noord Nederland)",
-				"location": "",
-				"industry": "Hospital & Health Care",
-				"position": "Medewerker Servicedesk",
-				"description": "Aannemen en registreren van 1e lijns calls. Oplossen van 1e lijns calls (indien nodig op locatie). Oproepdiensten buiten openingstijden.",
-				"startDate": "2013-06-01",
-				"endDate": ""
 			},
-			{
-				"employer": "Hanzehogeschool Groningen / Hanze University of Applied Sciences Groningen",
-				"location": "",
-				"industry": "Higher Education",
-				"position": "Student",
-				"description": "",
-				"startDate": "2011-01-01",
-				"endDate": ""
-			},
-			{
-				"employer": "Sleaveweb",
-				"location": "",
-				"industry": "",
-				"position": "Owner",
-				"description": "Sleaveweb is gespecialiseerd in het hosten, ontwikkelen, en onderhouden van websites en webapplicaties.",
-				"startDate": "2010-11-01",
-				"endDate": ""
-			},
-			{
-				"employer": "ZINN (Zorgorganisatie in Noord Nederland)",
-				"location": "",
-				"industry": "Hospital & Health Care",
-				"position": "Intern",
-				"description": "Duidelijke inventaris maken van de complete netwerk omgeving. In kaart brengen welke systemen en services gemonitord moesten worden door SCOM. Uitzoeken hoe belangrijke services en systemen gemonitord kunnen worden en welke acties ondernomen moeten worden bij fouten.",
-				"startDate": "2013-10-01",
-				"endDate": "2014-02-01"
-			},
-			{
-				"employer": "ZINN (Zorgorganisatie in Noord Nederland)",
-				"location": "",
-				"industry": "Hospital & Health Care",
-				"position": "Intern",
-				"description": "Internship ICT Network Administrator / ICT Servicedesk.",
-				"startDate": "2012-02-01",
-				"endDate": "2012-08-01"
-			},
-			{
-				"employer": "Alfa-college",
-				"location": "",
-				"industry": "Education Management",
-				"position": "Student",
-				"description": "",
-				"startDate": "2008-08-01",
-				"endDate": "2012-01-01"
-			},
-			{
-				"employer": "Tooladmin",
-				"location": "",
-				"industry": "",
-				"position": "Owner",
-				"description": "A web application to make life a little easier. Tool registration service.",
-				"startDate": "2011-07-01",
-				"endDate": "2012-03-01"
-			},
-			{
-				"employer": "Hornbach Baumarkt AG",
-				"location": "",
-				"industry": "Retail",
-				"position": "Medewerker",
-				"description": "",
-				"startDate": "2010-07-01",
-				"endDate": "2010-11-01"
-			},
-			{
-				"employer": "Bimpel",
-				"location": "",
-				"industry": "",
-				"position": "Intern",
-				"description": "",
-				"startDate": "2010-02-01",
-				"endDate": "2010-07-01"
-			}
-		],
-		"education": [
 			{
 				"degree": "VMBO GL / TL",
 				"school": "AOC Terra, Groene School Winsum",
 				"type": "",
 				"field": "",
-				"startDate": "2004-01-01",
-				"endDate": "2008-01-01",
+				"start_date": "2004-01-01",
+				"end_date": "2008-01-01",
 				"activities": ""
 			},
 			{
@@ -180,8 +171,8 @@
 				"school": "Hanzehogeschool Groningen",
 				"type": "",
 				"field": "Information Technology",
-				"startDate": "2011-01-01",
-				"endDate": "2015-01-01",
+				"start_date": "2011-01-01",
+				"end_date": "2015-01-01",
 				"activities": ""
 			},
 			{
@@ -189,40 +180,47 @@
 				"school": "Alfa College Techniek en ICT Groningen",
 				"type": "",
 				"field": "IT Beheer",
-				"startDate": "2008-01-01",
-				"endDate": "2012-01-01",
+				"start_date": "2008-01-01",
+				"end_date": "2012-01-01",
 				"activities": "Netwerkbeheer, Hardware Software beheer, Cisco, MCSE, Linux, ICT 2.0, HTML, PHP, CSS, Javascript, Mysql (database ontwikkeling), Oracle, Programmeren, System testing, Logica, Wiskunde, Nederlands, Engels"
 			}
 		],
-		"profilePhoto": "https://media.licdn.com/mpr/mprx/0_7QQHyxRuGN3cU08CDF5Ryj4mC-cQRJKCSbtByjsggciBXgbGi8nX-gaPuyBZZOlmm5k9Psk1cwhp"
-	},
-	"github": {
-		"firstName": "monalisa",
-		"lastName": "octocat",
-		"gender": "",
-		"birthday": "",
-		"birthplace": "",
-		"location": "San Francisco",
-		"email": "octocat@github.com",
-		"website": "https://github.com/blog",
-		"bio": "There once was...",
-		"projects": [
-			{
-				"name": "AutoResu.me",
-				"description": "School project",
-				"homepage": ""
-			},
-			{
-				"name": "jenkins-test",
-				"description": "",
-				"homepage": ""
-			},
-			{
-				"name": "kratos",
-				"description": "Two-player game framework",
-				"homepage": ""
-			}
+		"work_skills": {
+			"Server management": "Geavanceerd, 6 jaar ervaring. Ervaren in het congureren van Linux servers en het beheren van webservers (apache, iptables, htaccess). Ervaring met Microsoft System Center en Windows server 2012.",
+			"Database management": "Geavanceerd, 4 jaar ervaring. Diverse databases opgezet en onderhouden (Relationeel, noSQL, Oracle).",
+			"HTML + CSS": "Geavanceerd, 10 jaar ervaring. Kennis van HTML 5 en CSS 3.",
+			"PHP": "Geavanceerd, 6 jaar ervaring. Diverse webapplicaties ontwikkeld en content management systemen opgezet. Ervaren met frameworks zoals Laravel",
+			"Javascript": "Gemiddeld, 4 jaar ervaring. Ervaren met frameworks zoals jQuery.",
+			"Java": "Beginner, 2 jaar ervaring. Ervaren met OOP beginnend met MVC structuren.",
+			"Python": "Beginner, 3 jaar ervaring.",
+			"Cisco": "Gemiddeld, 4 jaar ervaring. Certicaten in CCNA en Security.",
+			"Oracle": "Gemiddeld, 2 jaar ervaring. Certificaat Database Design and Programming with SQL"
+		},
+		"communication_skills": [
+			"Kan objectieve en verhelderende publicaties schrijven over technische en wetenschappelijke onderwerpen.",
+			"Heeft een empathisch luistervermogen.",
+			"Kan overtuigend spreken over zowel IT onderwerpen als over onderwerpen buiten het vakgebied.",
+			"Goede presentatie vaardigheden, weet het publiek geïnteresseerd te houden.",
+			"Gaat discussies niet uit de weg."
 		],
-		"profilePhoto": "https://avatars.githubusercontent.com/u/583231?v=3"
+		"organisational_skills": [
+			"Is ondernemend ingesteld.",
+			"Weet compromissen te sluiten.",
+			"Let op details en niet snel tevreden.",
+			"Werkt graag met deadlines.",
+			"Is erg competitief ingesteld.",
+			"Neemt snel de leidende functie op zich.",
+			"Prestatie gericht.",
+			"Kan zichzelf motiveren.",
+			"Gaat klantgericht op zoek naar oplossingen."
+		],
+		"languages": {
+			"Nederlands": "Moedertaal.",
+			"Engels": "B2 Niveau, C1 Niveau op Luisteren en Lezen."
+		},
+		"hobbies": [
+			"Slagwerker bij Wilhelmina Bedum",
+			"Wielrennen"
+		]
 	}
 }
