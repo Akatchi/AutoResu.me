@@ -5,6 +5,7 @@
             'autoresume.oauth',
             'autoresume.factory.generator',
             'autoresume.factory.user',
-            'autoresume.factory.register'
+            'autoresume.factory.register',
+            'autoresume.factory.admin.oauth'
         ]);
 })();
