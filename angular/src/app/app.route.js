@@ -42,6 +42,16 @@
           }
         }
       })
+      .state('autoresume.pictures', {
+        url: '/pictures',
+        views: {
+          'main@': {
+            templateUrl: 'app/templates/views/autoresume/pictures.html',
+            controller: 'PicturesController',
+            controllerAs: 'vm'
+          }
+        }
+      })
       .state('autoresume.admin', {
         abstract: true,
         url: '/administrator',

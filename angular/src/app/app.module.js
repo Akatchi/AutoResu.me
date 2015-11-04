@@ -12,6 +12,7 @@
             'autoresume.login',
             'autoresume.generator',
             'autoresume.home',
-            'autoresume.admin'
+            'autoresume.admin',
+            'autoresume.pictures'
         ]);
 })()

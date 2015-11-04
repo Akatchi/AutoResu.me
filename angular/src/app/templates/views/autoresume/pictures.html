@@ -1,0 +1,11 @@
+<md-content layout-padding flex="90" flex-offset="5">
+    <form id="pictures" name="vm.pictureForm">
+        <h1>Pictures</h1>
+        <label ng-repeat="(key, value) in vm.pictureList.pics">
+      		<img src="{{ value }}" />
+      		<input type="radio" name="image" ng-model="user.picture" value="{{ key }}">
+      	</label>
+
+        <md-button class="md-raised md-primary" ng-click="vm.update()">Update</md-button>
+    </form>
+</md-content>
