@@ -1,0 +1,88 @@
+<md-content layout-padding>
+    <!-- skill overview and update -->
+      <h1 ng-hide="vm.creatingNew"> Skills </h1> 
+      <h1 ng-show="vm.creatingNew"> Add new skill </h1>
+        <md-input-container ng-repeat="skill in vm.skillList track by $index" ng-hide="vm.creatingNew">
+          <form name="skillForm">
+            <md-card>
+              <md-card-content>
+                <md-input-container>
+                  <label>Skill</label>
+                  <input name="skill" ng-model="skill.skill" value="{{ skill.skill }}" type="text" md-maxlength="50">
+                  <div ng-messages="skillForm.skill.$error">
+                    <div ng-message="maxlength">This seems too long, can you shorten it?</div>
+                  </div>
+                </md-input-container>
+                <md-input-container>
+                  <label>Description</label>
+                  <textarea ng-model="skill.description" md-maxlength="250"></textarea>
+                  <div ng-messages="skillForm.description.$error">
+                    <div ng-message="required">Required field</div>
+                    <div ng-message="maxlength">This seems too long, can you shorten it?</div>
+                  </div>
+                </md-input-container>
+                <md-input-container>
+                  <label>Type</label>
+                  <md-select ng-model="skill.skilltype.data.skill">
+                    <md-option ng-repeat="type in vm.skillTypes" value="{{ type.skill }}">
+                      {{ type.skill }}
+                    </md-option>
+                  </md-select>
+                </md-input-container>
+              </md-card-content>
+              <div class="md-actions" layout="row">
+                <md-button ng-click="vm.deleteSkill(skill.id)" class="md-warn">Delete</md-button>
+                <md-button ng-click="vm.update(skill)" ng-disabled="skillForm.$pristine">Save</md-button>
+              </div>
+            </md-card>
+          </form>
+        </md-input-container>
+
+    <!-- add a new skill --> 
+    <form name="vm.addSkillForm" ng-show="vm.creatingNew" novalidate>
+        <md-input-container>
+            <md-card>
+              <md-card-content>
+                <md-input-container>
+                  <label>Skill</label>
+                  <input name="skill" ng-model="vm.addSkill.skill" type="text" md-maxlength="50" required>
+                  <div ng-messages="vm.addSkillForm.skill.$error" ng-show="!vm.addSkillForm.$pristine">
+                    <div ng-message="required">This field is required</div>
+                    <div ng-message="maxlength">This seems too long, can you shorten it?</div>
+                  </div>
+                </md-input-container>
+                <md-input-container>
+                  <label>Description</label>
+                  <textarea ng-model="vm.addSkill.description" columns="1" md-maxlength="250" required></textarea>
+                  <div ng-messages="vm.addSkillForm.description.$error">
+                    <div ng-message="required">This field is required</div>
+                    <div ng-message="maxlength">This seems too long, can you shorten it?</div>
+                  </div>
+                </md-input-container>
+                <md-input-container>
+                  <label>Type</label>
+                  <md-select ng-model="vm.addSkill.type">
+                    <md-option ng-repeat="type in vm.skillTypes" value="{{ type.skill }}">
+                      {{ type.skill }}
+                    </md-option>
+                  </md-select>
+                </md-input-container>
+              </md-card-content>
+              <div class="md-actions" layout="row">
+                <md-button ng-click="vm.add()" ng-disabled="vm.addSkillForm.$pristine">Add</md-button>
+              </div>
+            </md-card>
+        </md-input-container>
+    </form>
+
+    <!-- Fab button --> 
+    <md-button aria-label="Add skill" class="md-fab md-fab-bottom-right md-primary" ng-click="vm.creatingNew = !vm.creatingNew">
+      <md-tooltip md-direction="left" md-visible="tooltipVisible" md-autohide="false" >
+        <span ng-hide="vm.creatingNew">Add skill</span>
+        <span ng-show="vm.creatingNew">Go Back</span>
+      </md-tooltip>
+
+      <i class="fa fa-fw fa-plus" ng-hide="vm.creatingNew"></i>
+      <i class="fa fa-fw fa-undo" ng-show="vm.creatingNew"></i>
+    </md-button>
+</md-content>

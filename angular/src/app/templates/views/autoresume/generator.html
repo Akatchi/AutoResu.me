@@ -1,1 +1,155 @@
-<h1> Generate Resume </h1>
+<h1>Generate Resume</h1>
+<div id="gen-container" data-ng-controller="GeneratorController">
+
+    <h2 class="gen-title">Personal data</h2>
+    <div id="pictures">
+
+        <div class="picture">
+            <span class="picture check-element" ng-hide="image"><img src="{{ vm.data.profile_photo }}" /></span>
+        </div>
+    </div>
+
+    <div id="personal">
+        <div class="item">
+            <label>First Name: </label>
+            <p>{{ vm.data.first_name }}</p>
+        </div>
+
+        <div class="item _name">
+            <label>Last Name: </label>
+            <p>{{ vm.data.last_name }}</p>
+        </div>
+
+        <div class="item er">
+            <label>Gender: </label>
+            <p>{{ vm.data.gender }}</p>
+        </div>
+
+        <div class="item hday">
+            <label>Birthday: </label>
+            <p>{{ vm.data.birthday }}</p>
+        </div>
+
+        <div class="item">
+            <label>Place of birth: </label>
+            <p>{{ vm.data.birthplace }}</p>
+        </div>
+
+        <div class="item">
+            <label>Address: </label>
+            <p>{{ vm.data.address }}</p>
+        </div>
+
+        <div class="item">
+            <label>Postal code: </label>
+            <p>{{ vm.data.postalcode }}</p>
+        </div>
+
+        <div class="item">
+            <label>City / Town: </label>
+            <p>{{ vm.data.location }}</p>
+        </div>
+
+        <div class="item">
+            <label>E-mail: </label>
+            <p>{{ vm.data.email }}</p>
+        </div>
+
+        <div class="item">
+            <label>Website: </label>
+            <p>{{ vm.data.website }}</p>
+        </div>
+    </div>
+
+    <div id="bio">
+        <h2 class="gen-title">Personal profile</h2>
+        <div class="item">
+            <p>{{ vm.data.bio }}</p>
+        </div>
+    </div>
+
+    <div class="clear">&nbsp;</div>
+
+    <div id="employment">
+        <h2 class="gen-title">Employment history</h2>
+        <table>
+        <tbody ng-repeat="item in vm.data.work">
+            <tr class="first">
+                <td class="date">{{ item.start_date }} - {{ item.end_date != "" ? item.end_date : "current" }}</td>
+                <td class="employer">{{ item.employer }}</td>
+                <td class="industry">{{ item.industry }}</td>
+            </tr>
+            <tr class="second">
+                <td class="position">{{ item.position }}</td>
+                <td class="desc" colspan="2">{{ item.description }}</td>
+            </tr>
+        </table>
+    </div>
+
+    <div id="education">
+        <h2 class="gen-title">Education history</h2>
+        <table>
+        <tbody ng-repeat="item in vm.data.education">
+            <tr class="first">
+                <td class="date">{{ item.start_date != "" ? item.start_date : item.end_date }} - {{ item.end_date != "" ? item.end_date : "current" }}</td>
+                <td class="school">{{ item.school }}</td>
+                <td class="type">{{ item.type }} {{ item.field }}</td>
+            </tr>
+            <tr class="second">
+                <td class="degree">{{ item.degree }}</td>
+                <td class="activities" colspan="2">{{ item.activities }}</td>
+            </tr>
+        </table>
+    </div>
+
+    <div id="skills">
+
+        <div id="work_skills">
+            <h2 class="gen-title">Skills</h2>
+            <h3 class="gen-sub-title">Professional skills</h3>
+            <table>
+                <tbody>
+                    <tr ng-repeat="(key, value) in vm.data.work_skills">
+                        <td class="skills">{{ key }}</td>
+                        <td class="level">{{ value }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div id="communication_skills">
+            <h3 class="gen-sub-title">Communication skills</h3>
+            <ul>
+                <li ng-repeat="value in vm.data.communication_skills">{{ value }}</li>
+            </ul>
+        </div>
+
+        <div id="organisational_skills">
+            <h3 class="gen-sub-title">Management and organisational skills</h3>
+            <ul>
+                <li ng-repeat="value in vm.data.organisational_skills">{{ value }}</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="languages">
+        <h2 class="gen-title">Languages</h2>
+        <ul>
+            <li ng-repeat="(key, value) in vm.data.languages">{{ key }}: {{ value }}</li>
+        </ul>
+    </div>
+
+    <div id="hobbies">
+        <h2 class="gen-title">Hobbies</h2>
+        <ul>
+            <li ng-repeat="value in vm.data.hobbies">{{ value }}</li>
+        </ul>
+    </div>
+
+    <form class="submit_form" name="vm.submitForm">
+        <label>Document name:</label>
+        <input name="name" type="text">
+        <md-button class="md-raised md-primary" ng-click="#">Generate!</md-button>
+    </form>
+
+</div>

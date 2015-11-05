@@ -1,12 +1,12 @@
-<md-toolbar layout="row" class="md-whiteframe-z1">
+<md-toolbar layout="row" class="md-whiteframe-z1" ng-controller="NavbarController as vm">
     <div class="md-toolbar-tools">
-        <md-button ng-click="toggleSidenav('left')" hide-gt-md aria-label="Menu">
+        <md-button class="md-icon-button" ng-click="vm.toggleSidenav('left')" hide-gt-md aria-label="Menu">
             <i class="fa fa-fw fa-bars"></i>
         </md-button>
         <h3>AutoResu.me</h3>
         <span flex></span>
-        <md-button>
-          <i class="fa fa-fw fa-users"></i>  
+        <md-button class="md-icon-button" ng-click="vm.logout()" aria-label="Logout">
+          <i class="fa fa-fw fa-sign-out"></i>  
         </md-button>
     </div>
 </md-toolbar>

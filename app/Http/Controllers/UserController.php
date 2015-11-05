@@ -6,8 +6,10 @@ use Illuminate\Http\Request;
 
 use AutoResume\Http\Requests;
 use AutoResume\Http\Controllers\Controller;
+use AutoResume\Transformers\UserTransformer;
+use Dingo\Api\Transformer\Factory;
 
-use Auth;
+use Auth, API;
 
 class UserController extends Controller
 {
@@ -18,7 +20,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        return response()->api(Auth::user());
+        return $this->response->item(Auth::user(), new UserTransformer);
     }
 
     /**

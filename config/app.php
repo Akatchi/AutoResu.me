@@ -137,6 +137,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
 
+        Laravel\Socialite\SocialiteServiceProvider::class,
         /*
          * Application Service Providers...
          */
@@ -203,6 +204,7 @@ return [
         'ApiRoute'      => Dingo\Api\Facade\Route::class,
         'JWTAuth'       => Tymon\JWTAuth\Facades\JWTAuth::class,
         'JWTFactory'    => Tymon\JWTAuth\Facades\JWTFactory::class,
+        'Socialite'     => Laravel\Socialite\Facades\Socialite::class,
     ],
 
 ];

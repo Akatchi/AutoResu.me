@@ -7,11 +7,17 @@
     // GeneratorController.$inject = ['$log', 'Generator'];
 
     /* @ngInject */
-    function GeneratorController($log, Generator) {
+    function GeneratorController(Generator) {
         var vm = this;
-        vm.data = Generator.query();
 
-        $log.debug('Generator data: ' + vm.data);
+
+        vm.removeText = 'Remove';
+        vm.undoText = 'Undo';
+        vm.addText = 'Add';
+
+        // Get al the data
+        Generator.query(function(data) {
+            vm.data = data.data;
+        });
     }
-
 })();

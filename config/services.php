@@ -35,4 +35,9 @@ return [
         'secret' => env('STRIPE_SECRET'),
     ],
 
+    'linkedin' => [
+        'client_secret' => 'Nt6WhvyjO1kaezvr',
+        'client_id' => '77xst5lp85xpdy',
+        'redirect' => 'http://school.dev/api/auth/linkedin/callback',
+    ],
 ];
