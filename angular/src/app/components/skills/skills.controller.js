@@ -52,16 +52,20 @@
                         vm.skillList = response.data;
                         // response went OK so go to the overview
                         vm.creatingNew = false;
+                        // reset that form. 
+                        vm.addSkill = {};
+                        vm.addSkillForm.$setPristine();
+                        vm.addSkillForm.$setUntouched();
                     }, function(error) {
                         $log.debug(error);
                         // bad response somethign went wrong
                         $mdToast.show($mdToast.simple().content('Something went wrong, please try again').hideDelay(3000).position('bottom right'));
                     }
                 );
+            } else {
+                // set the form back to dirty coz somebody tried to submit.
+                vm.addSkillForm.$setDirty();
             }
-
-            // set the form back to dirty coz somebody tried to submit.
-            vm.addSkillForm.$setDirty();
         }
 
         function deleteSkill(skillId) {
