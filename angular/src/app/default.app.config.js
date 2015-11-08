@@ -7,12 +7,13 @@
     
 
     /* @ngInject */
-    function config($logProvider, $mdThemingProvider, $mdIconProvider, $authProvider, API_URL, $httpProvider) {
+    function config($logProvider, $mdThemingProvider, $mdIconProvider, $authProvider, API_URL, $httpProvider, $mdDateLocaleProvider) {
+        $mdDateLocaleProvider
         // Enable log
         $logProvider.debugEnabled(true);
 
         // enable caceh
-        $httpProvider.defaults.cache = true;
+        $httpProvider.defaults.cache = false;
 
         $mdThemingProvider.theme('default')
             .primaryPalette('light-blue')

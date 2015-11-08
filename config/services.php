@@ -36,8 +36,8 @@ return [
     ],
 
     'linkedin' => [
-        'client_secret' => 'Nt6WhvyjO1kaezvr',
-        'client_id' => '77xst5lp85xpdy',
-        'redirect' => 'http://school.dev/api/auth/linkedin/callback',
+        'client_secret' => env('LINKEDIN_SECRET'),
+        'client_id' => env('LINKEDIN_CLIENT_ID'),
+        'redirect' => env('LINKEDIN_REDIRECT'), 
     ],
 ];

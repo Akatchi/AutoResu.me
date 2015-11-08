@@ -32,6 +32,7 @@ $api->version('v1', function ($api) {
                 $api->resource('skilltype', 'SkillTypeController');
             });
             
+            // Callback routes
             $api->get('auth/linkedin/callback', 'ProviderController@linkedinCallback');
         });
     });

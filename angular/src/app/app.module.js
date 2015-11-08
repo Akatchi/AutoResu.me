@@ -12,7 +12,7 @@
             'autoresume.signup',
             'autoresume.login',
             'autoresume.generator',
-            'autoresume.home',
+            'autoresume.retrieve',
             'autoresume.admin',
             'autoresume.education',
             'autoresume.skills',

@@ -19,23 +19,23 @@
         // form errors from the backend
         vm.formErrors = {};
     
-        function update(skill) {
-            $log.debug(skill);
-            // if(vm.skillForm.$valid) {
-            //     // perform the call to the api with the user.
-            //     SkillService.update(vm.skillList).$promise.then(
-            //         function(response) {
-            //             // DISABLE THE SAVE BUTTON FOR THE FORM.!
-            //         }, function(error) {
-            //             $log.debug(error);
-            //             // bad response somethign went wrong
-            //             $mdToast.show($mdToast.simple().content('Something went wrong, please try again').hideDelay(3000).position('bottom right'));
-            //         }
-            //     );
-            // }
+        function update(skill, skillForm) {
+            if(skillForm.$valid) {
+                // perform the call to the api with the user.
+                SkillService.update(skill, {id: skill.id}).$promise.then(
+                    function(response) {
+                        // DISABLE THE SAVE BUTTON FOR THE FORM.!
+                        skillForm.$setPristine();
+                    }, function(error) {
+                        $log.debug(error);
+                        // bad response somethign went wrong
+                        $mdToast.show($mdToast.simple().content('Something went wrong, please try again').hideDelay(3000).position('bottom right'));
+                    }
+                );
+            }
 
             // set the form back to dirty coz somebody tried to submit.
-            vm.skillForm.$setDirty();
+            skillForm.$setDirty();
         }
 
         /**
@@ -65,11 +65,17 @@
         }
 
         function deleteSkill(skillId) {
+            // $log.debug($filter('filter')(vm.skillList, {id: !skillId}));
             SkillService.delete({id: skillId}).$promise.then(
                 function(response) {
-                    vm.skillList = $filter('filter')(vm.skillList, {id: '!skillId'});
+                    // remove the view model thing
+                    vm.skillList = $filter('filter')(vm.skillList, function(value, index){
+                        return value.id !== skillId;
+                    });
+
                     $mdToast.show($mdToast.simple().content('Skill entry deleted').hideDelay(3000).position('top right'));        
                 }, function(error) {
+                    // log the error for reference
                     $log.debug(error);
                     $mdToast.show($mdToast.simple().content('Something went wrong, please try again').hideDelay(3000).position('top right'));        
                 }

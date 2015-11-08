@@ -1,4 +1,4 @@
-<md-content layout-padding>
+<md-content layout-padding flex-gt-lg="80" flex-offset-gt-lg="10">
     <!-- skill overview and update -->
       <h1 ng-hide="vm.creatingNew"> Skills </h1> 
       <h1 ng-show="vm.creatingNew"> Add new skill </h1>
@@ -32,7 +32,10 @@
               </md-card-content>
               <div class="md-actions" layout="row">
                 <md-button ng-click="vm.deleteSkill(skill.id)" class="md-warn">Delete</md-button>
-                <md-button ng-click="vm.update(skill)" ng-disabled="skillForm.$pristine">Save</md-button>
+                <md-button ng-click="vm.update(skill, skillForm)" ng-disabled="skillForm.$pristine">Save</md-button>
+                <md-checkbox ng-model="skill.enabled" aria-label="Enable skill">
+                  Enable for resume
+                </md-checkbox>
               </div>
             </md-card>
           </form>

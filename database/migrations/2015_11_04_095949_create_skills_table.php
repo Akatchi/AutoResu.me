@@ -24,6 +24,7 @@ class CreateSkillsTable extends Migration
             $table->string('name', 100);
             $table->text('description');
             $table->integer('skill_type_id')->unsigned();
+            $table->boolean('enabled');
             $table->timestamps();
         });
 
@@ -34,7 +35,7 @@ class CreateSkillsTable extends Migration
                     ->onDelete('no action');
             $table->foreign('user_id')
                     ->references('id')
-                    ->on('users');
+                    ->on('users')
                     ->onDelete('cascade');
         });
     }

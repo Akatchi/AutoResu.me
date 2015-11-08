@@ -68,12 +68,24 @@ class SkillController extends Controller
      */
     public function update(StoreNewSkillRequest $request, $id)
     {
-        $data = $request->only(['description', 'skill', 'type']);
+        $data = $request->only(['description', 'skill', 'skilltype', 'enabled']);
+        $data['skilltype'] = json_decode($data['skilltype'], true);
+
+        // set the parameters correctly
+        $data = [
+            'name' => $data['skill'],
+            'description' => $data['description'],
+            'skilltype' => $data['skilltype'],
+            'enabled' => (($data['enabled']) ? 1 : 0),
+        ];
 
         $skill = Skill::where('user_id', '=', Auth::user()->id)->where('id', '=', $id)->first();
         if($skill != null) {
             $skill->update($data);
         }
+
+        $skill->skill_type_id = SkillType::whereName($data['skilltype']['data']['skill'])->first()->id;
+        $skill->save();
 
         return response()->api('OK');
     }
