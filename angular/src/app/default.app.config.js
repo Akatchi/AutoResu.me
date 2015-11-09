@@ -7,9 +7,13 @@
     
 
     /* @ngInject */
-    function config($logProvider, $mdThemingProvider, $mdIconProvider, $authProvider, API_URL) {
+    function config($logProvider, $mdThemingProvider, $mdIconProvider, $authProvider, API_URL, $httpProvider, $mdDateLocaleProvider) {
+        $mdDateLocaleProvider
         // Enable log
         $logProvider.debugEnabled(true);
+
+        // enable caceh
+        $httpProvider.defaults.cache = false;
 
         $mdThemingProvider.theme('default')
             .primaryPalette('light-blue')
@@ -22,7 +26,6 @@
         // set the token url we're fetching this here. 
         $authProvider.loginUrl = API_URL + 'authenticate/token';
         $authProvider.tokenPrefix = 'autoresume';
-
 
         // Configure the oAuth provider with our API keys
         configureOAuth($authProvider);
@@ -39,7 +42,8 @@
         });
 
         $authProvider.linkedin({
-          clientId: 'Client ID goes here'
+          clientId: '77xst5lp85xpdy',
+          url: 'http://school.dev/api/auth/linkedin'
         });
     }
 

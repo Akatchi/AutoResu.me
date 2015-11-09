@@ -26,8 +26,14 @@ $api->version('v1', function ($api) {
 
             $api->group(['middleware' => 'jwt.auth'], function($api){
                 $api->resource('user', 'UserController');
-
+                $api->resource('provider', 'ProviderController');
+                $api->get('auth/linkedin', 'ProviderController@linkedin');
+                $api->resource('skill', 'SkillController');
+                $api->resource('skilltype', 'SkillTypeController');
             });
+            
+            // Callback routes
+            $api->get('auth/linkedin/callback', 'ProviderController@linkedinCallback');
         });
     });
 });

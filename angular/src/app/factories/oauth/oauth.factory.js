@@ -7,16 +7,18 @@
     // oAuthFactory.$inject = ['$resource'];
 
     /* @ngInject */
-    function oAuthFactory($resource) {
-      return $resource('app/placeholders/oauth/:filename.json', {}, {
-        query: {
-          method:'GET',
-          params: {
-            filename:'oauth'
+    function oAuthFactory($resource, API_URL) {
+      var data = $resource(API_URL + 'provider/:id', {id: '@_id'}, {
+          update: {
+              method: 'PUT'
           },
-          isArray:false
-        }
+          query: {
+              method: 'GET',
+              isArray: false
+          }
       });
+      
+      return data;
     }
 
 })();

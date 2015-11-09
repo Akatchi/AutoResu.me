@@ -59,6 +59,77 @@
           }
         }
       })
+      .state('autoresume.work', {
+        url: '/work',
+        views: {
+          'main@': {
+            templateUrl: 'app/templates/views/autoresume/work.html',
+            controller: 'WorkController',
+            controllerAs: 'vm'
+          }
+        }
+      })
+      .state('autoresume.work.add', {
+        url: '/add',
+        views: {
+          'main@': {
+            templateUrl: 'app/templates/views/autoresume/add_work.html',
+            controller: 'AddWorkController',
+            controllerAs: 'vm'
+          }
+        }
+      })
+      .state('autoresume.education', {
+        url: '/education',
+        views: {
+          'main@': {
+            templateUrl: 'app/templates/views/autoresume/education.html',
+            controller: 'EducationController',
+            controllerAs: 'vm'
+          }
+        }
+      })
+      .state('autoresume.education.add', {
+        url: '/add',
+        views: {
+          'main@': {
+            templateUrl: 'app/templates/views/autoresume/add_education.html',
+            controller: 'AddEducationController',
+            controllerAs: 'vm'
+          }
+        }
+      })
+      .state('autoresume.skills', {
+        url: '/skills',
+        views: {
+          'main@': {
+            templateUrl: 'app/templates/views/autoresume/skills.html',
+            controller: 'SkillsController',
+            controllerAs: 'vm'
+          }
+        },
+        resolve: {
+          /** @ngInject */
+          skills: function(SkillService) {
+            return SkillService.query({
+              include: 'skilltype'
+            }).$promise;
+          },
+          skilltypes: function(SkillTypeService) {
+            return SkillTypeService.query().$promise;
+          }
+        }
+      })
+      .state('autoresume.skills.add', {
+        url: '/add',
+        views: {
+          'main@': {
+            templateUrl: 'app/templates/views/autoresume/add_skills.html',
+            controller: 'AddSkillsController',
+            controllerAs: 'vm'
+          }
+        }
+      })
       .state('anon', {
         abstract: true,
         data: {

@@ -17,10 +17,19 @@ class CORS
     public function handle($request, Closure $next)
     {
         $headers = [
-            'Access-Control-Allow-Origin' => '*',
             'Access-Control-Allow-Methods'=> 'POST, GET, OPTIONS, PUT, DELETE, PATCH',
-            'Access-Control-Allow-Headers'=> 'Content-Type, X-Auth-Token, Origin, x-firephp-version, Authorization'
+            'Access-Control-Allow-Headers'=> 'Content-Type, X-Auth-Token, Origin, x-firephp-version, Authorization',
         ];
+
+        if($request->is('api/auth/*')) {
+            $headers['Access-Control-Allow-Origin'] = 'http://localhost:3000';
+            $headers['Access-Control-Allow-Credentials'] = 'true';
+        } else {
+            $headers['Access-Control-Allow-Origin'] = '*';
+            $headers['Access-Control-Allow-Credentials'] = 'false';
+        }
+
+        
 
         $response = $next($request);
 

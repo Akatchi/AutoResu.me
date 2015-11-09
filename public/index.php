@@ -1,8 +1,9 @@
 <?php
 // // TEMPORARY CORS FIX
-// header('Access-Control-Allow-Origin: *');
+// header('Access-Control-Allow-Origin: http://localhost:3000');
 // header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
-// header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token, x-firephp-version'); // allow certain headers
+// header('Access-Control-Allow-Headers: Authorization, Origin, Content-Type, X-Auth-Token, x-firephp-version'); // allow certain headers
+// header('Access-Control-Allow-Credentials: true'); // allow certain headers
 /**
  * Laravel - A PHP Framework For Web Artisans
  *
