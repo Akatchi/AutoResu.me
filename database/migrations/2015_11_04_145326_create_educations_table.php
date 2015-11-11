@@ -17,9 +17,9 @@ class CreateEducationsTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->string('degree', 200);
             $table->string('school', 200);
-            $table->integer('school_type_id')->unsigned();
+            $table->string('type', 200)->nullable();
             $table->date('start_date');
-            $table->date('end_date');
+            $table->date('end_date')->nullable();
             $table->boolean('enabled');
             $table->text('activities')->nullable();
             $table->timestamps();

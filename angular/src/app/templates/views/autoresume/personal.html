@@ -1,0 +1,20 @@
+<md-content layout-padding flex-gt-lg="80" flex-offset-gt-lg="10">
+    <h1>Personal Information</h1>
+    <md-card>
+        <form name="vm.personalInfoForm" novalidate>
+            <md-card-content>
+                <md-input-container class="md-block">
+                  <label>First name</label>
+                  <input name="firstName" ng-model="personal.first_name" value="{{ personal.first_name }}" type="text" md-maxlength="50">
+                  <div ng-messages="vm.personalInfoForm.firstName.$error">
+                    <div ng-message="md-maxlength">This seems too long, can you shorten it?</div>
+                  </div>
+                </md-input-container>
+            </md-card-content>
+
+            <md-card-actions layout="row" layout-align="begin center">
+                <md-button ng-click="vm.save()" ng-disabled="vm.personalInfoForm.$pristine">Save</md-button>
+            </md-card-actions>
+        </form>
+    </md-card>
+</md-content>

@@ -1,56 +1,104 @@
 <md-content layout-padding flex-gt-lg="80" flex-offset-gt-lg="10">
-    <form name="vm.workForm">
-        <h1> Work </h1>
-
-        <md-input-container ng-repeat="work in vm.workList.work">
-            <md-card>
-              <md-card-content>
-                <md-input-container>
-                  <label>Employer</label>
-                  <input required name="employer" ng-model="work.employer" type="text" md-maxlength="50">
-                  <div ng-messages="vm.workForm.employer.$error" ng-show="!vm.workForm.$pristine">
-                    <div ng-message="required">Required field</div>
-                    <div ng-message="maxlength">This seems too long, can you shorten it?</div>
-                  </div>
-                </md-input-container>
-                <md-input-container>
-                  <label>Location</label>
-                  <input name="location" ng-model="work.location" type="text" md-maxlength="50">
-                  <div ng-messages="vm.workForm.location.$error" ng-show="!vm.workForm.$pristine">
-                    <div ng-message="maxlength">This seems too long, can you shorten it?</div>
-                  </div>
-                </md-input-container>
-                <md-input-container>
-                  <label>Position</label>
-                  <input required name="position" ng-model="work.position" type="text" md-maxlength="50">
-                  <div ng-messages="vm.workForm.position.$error" ng-show="!vm.workForm.$pristine">
-                    <div ng-message="required">Required field</div>
-                    <div ng-message="maxlength">This seems too long, can you shorten it?</div>
-                  </div>
-                </md-input-container>
-                <md-input-container>
-                  <label>Description</label>
-                  <textarea ng-model="work.description" columns="1" md-maxlength="2S50"></textarea>
-                </md-input-container>
-                <md-input-container>
-                  <h4>Start date</h4>
-                  <md-datepicker ng-model="work.start_date" md-placeholder="Start date"></md-datepicker>
-                </md-input-container>
-                <md-input-container>
-                  <h4>End date</h4>
-                  <md-datepicker ng-model="work.end_data" md-placeholder="End date"></md-datepicker>
-                </md-input-container>
-              </md-card-content>
-              <div class="md-actions" layout="row" layout-align="end center">
-                <md-checkbox ng-model="work.enabled" aria-label="Enabled" class="md-primary">
-                    Enabled
-                </md-checkbox>
-                <md-button ng-click="vm.deleteWork(work.id)" class="md-raised md-warn">Delete</md-button>
-              </div>
-            </md-card>
+  <h1 ng-hide="vm.creatingNew"> Work </h1>
+  <h1 ng-show="vm.creatingNew"> Add new work experience </h1>
+  <md-card ng-repeat="work in vm.workList track by $index" ng-hide="vm.creatingNew" layout-padding>
+    <form name="workForm">
+      <md-card-content>
+        <md-input-container class="md-block">
+          <label>Employer</label>
+          <input required name="employer" ng-model="work.employer" type="text" md-maxlength="50">
+          <div ng-messages="vm.workForm.employer.$error" ng-show="!vm.workForm.$pristine">
+            <div ng-message="required">Required field</div>
+            <div ng-message="maxlength">This seems too long, can you shorten it?</div>
+          </div>
         </md-input-container>
-
-        <md-button class="md-raised md-primary" ng-click="vm.create()">Add new work entry</md-button>
-        <md-button class="md-raised md-primary" ng-click="vm.update()">Update</md-button>
+        <md-input-container class="md-block">
+          <label>Location</label>
+          <input name="location" ng-model="work.location" type="text" md-maxlength="50">
+          <div ng-messages="vm.workForm.location.$error" ng-show="!vm.workForm.$pristine">
+            <div ng-message="maxlength">This seems too long, can you shorten it?</div>
+          </div>
+        </md-input-container>
+        <md-input-container class="md-block">
+          <label>Position</label>
+          <input required name="position" ng-model="work.position" type="text" md-maxlength="50">
+          <div ng-messages="vm.workForm.position.$error" ng-show="!vm.workForm.$pristine">
+            <div ng-message="required">Required field</div>
+            <div ng-message="maxlength">This seems too long, can you shorten it?</div>
+          </div>
+        </md-input-container>
+        <md-input-container class="md-block">
+          <label>Description</label>
+          <textarea ng-model="work.description" columns="1" md-maxlength="250"></textarea>
+        </md-input-container>
+        <h4>Start date</h4>
+          <md-datepicker ng-model="work.start_date"></md-datepicker>
+        <h4>End date</h4>
+          <md-datepicker ng-model="work.end_date"></md-datepicker>
+      </md-card-content>
+      <md-card-actions layout="row" layout-align="begin center">
+        <md-button ng-click="vm.deleteWork(work.id)" class="md-warn">Delete</md-button>
+        <md-button ng-click="vm.update(work, workForm)" ng-disabled="workForm.$pristine">Save</md-button>
+        <md-checkbox ng-model="work.enabled" aria-label="Enable work" class="md-primary">
+            Enable for resume
+        </md-checkbox>
+      </md-card-actions>
     </form>
+  </md-card>
+
+  <!-- add a new work form -->  
+  <form name="vm.addWorkForm" ng-show="vm.creatingNew" novalidate>
+    <md-card>
+      <md-card-content>
+        <md-input-container class="md-block">
+          <label>Employer</label>
+          <input required name="employer" ng-model="vm.addWork.employer" type="text" md-maxlength="50">
+          <div ng-messages="vm.addWorkForm.employer.$error" ng-show="!vm.addWorkForm.$pristine">
+            <div ng-message="required">Required field</div>
+            <div ng-message="maxlength">This seems too long, can you shorten it?</div>
+          </div>
+        </md-input-container>
+        <md-input-container class="md-block">
+          <label>Location</label>
+          <input name="location" ng-model="vm.addWork.location" type="text" md-maxlength="50">
+          <div ng-messages="vm.addWorkForm.location.$error" ng-show="!vm.addWorkForm.$pristine">
+            <div ng-message="maxlength">This seems too long, can you shorten it?</div>
+          </div>
+        </md-input-container>
+        <md-input-container class="md-block">
+          <label>Position</label>
+          <input required name="position" ng-model="vm.addWork.position" type="text" md-maxlength="50">
+          <div ng-messages="vm.addWorkForm.position.$error" ng-show="!vm.addWorkForm.$pristine">
+            <div ng-message="required">Required field</div>
+            <div ng-message="maxlength">This seems too long, can you shorten it?</div>
+          </div>
+        </md-input-container>
+        <md-input-container class="md-block">
+          <label>Description</label>
+          <textarea ng-model="vm.addWork.description" columns="1" md-maxlength="200"></textarea>
+        </md-input-container>
+          <h4>Start date</h4>
+          <md-datepicker ng-model="vm.addWork.start_date" md-placeholder="Start date"></md-datepicker>
+          <h4>End date</h4>
+          <md-datepicker ng-model="vm.addWork.end_date" md-placeholder="End date"></md-datepicker>
+      </md-card-content>
+      <md-card-actions layout="row" layout-align="begin center">
+        <md-button ng-click="vm.add()">Add</md-button>
+        <md-checkbox ng-model="vm.addWork.enabled" aria-label="Enabled" class="md-primary">
+            Enabled
+        </md-checkbox>
+      </md-card-actions>
+    </md-card>
+  </form>
+
+  <!-- Fab button --> 
+  <md-button aria-label="Add work" class="md-fab md-fab-bottom-right md-primary" ng-click="vm.creatingNew = !vm.creatingNew">
+    <md-tooltip md-direction="top" md-visible="tooltipVisible" md-autohide="false" >
+      <span ng-hide="vm.creatingNew">Add Work</span>
+      <span ng-show="vm.creatingNew">Go Back</span>
+    </md-tooltip>
+
+    <i class="fa fa-fw fa-plus" ng-hide="vm.creatingNew"></i>
+    <i class="fa fa-fw fa-undo" ng-show="vm.creatingNew"></i>
+  </md-button>
 </md-content>

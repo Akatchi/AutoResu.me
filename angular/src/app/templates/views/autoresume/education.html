@@ -1,67 +1,95 @@
 <md-content layout-padding flex-gt-lg="80" flex-offset-gt-lg="10">
-    <form name="vm.educationForm">
-        <h1> Education </h1>
-
-        <md-input-container ng-repeat="education in vm.educationList.education">
-            <md-card>
-              <md-card-content>
-                <md-input-container>
-                  <label>Degree</label>
-                  <input name="degree" ng-model="education.degree" type="text" md-maxlength="50">
-                  <div ng-messages="vm.educationForm.employer.$error" ng-show="!vm.educationForm.$pristine">
-                    <div ng-message="maxlength">This seems too long, can you shorten it?</div>
-                  </div>
-                </md-input-container>
-                <md-input-container>
-                  <label>School</label>
-                  <input required name="school" ng-model="education.school" type="text" md-maxlength="50">
-                  <div ng-messages="vm.educationForm.school.$error" ng-show="!vm.educationForm.$pristine">
-                    <div ng-message="required">Required field</div>
-                    <div ng-message="maxlength">This seems too long, can you shorten it?</div>
-                  </div>
-                </md-input-container>
-                <md-input-container>
-                  <label>Type</label>
-                  <input required name="type" ng-model="education.type" type="text" md-maxlength="50">
-                  <div ng-messages="vm.educationForm.type.$error" ng-show="!vm.educationForm.$pristine">
-                    <div ng-message="required">Required field</div>
-                    <div ng-message="maxlength">This seems too long, can you shorten it?</div>
-                  </div>
-                </md-input-container>
-                <md-input-container>
-                  <label>Field</label>
-                  <input name="field" ng-model="education.field" type="text" md-maxlength="50">
-                  <div ng-messages="vm.educationForm.field.$error" ng-show="!vm.educationForm.$pristine">
-                    <div ng-message="maxlength">This seems too long, can you shorten it?</div>
-                  </div>
-                </md-input-container>
-                <md-input-container>
-                  <h4>Start date</h4>
-                  <md-datepicker ng-model="education.start_date" md-placeholder="Start date"></md-datepicker>
-                </md-input-container>
-                <md-input-container>
-                  <h4>End date</h4>
-                  <md-datepicker ng-model="education.end_data" md-placeholder="End date"></md-datepicker>
-                </md-input-container>
-                <md-input-container>
-                  <label>Type</label>
-                  <input required name="type" ng-model="education.type" type="text" md-maxlength="50">
-                  <div ng-messages="vm.educationForm.type.$error" ng-show="!vm.educationForm.$pristine">
-                    <div ng-message="required">Required field</div>
-                    <div ng-message="maxlength">This seems too long, can you shorten it?</div>
-                  </div>
-                </md-input-container>
-              </md-card-content>
-              <div class="md-actions" layout="row" layout-align="end center">
-                <md-checkbox ng-model="education.enabled" aria-label="Enabled" class="md-primary">
-                    Enabled
-                </md-checkbox>
-                <md-button ng-click="vm.deleteEducation(education.id)" class="md-raised md-warn">Delete</md-button>
-              </div>
-            </md-card>
-        </md-input-container>
-
-        <md-button class="md-raised md-primary" ng-click="vm.create()">Add new educatoin entry</md-button>
-        <md-button class="md-raised md-primary" ng-click="vm.update()">Update</md-button>
+  <h1 ng-hide="vm.creatingNew"> Education </h1>
+  <h1 ng-show="vm.creatingNew"> Add a new education </h1>
+    <md-card ng-repeat="education in vm.educationList track by $index" ng-hide="vm.creatingNew">
+      <form name="educationForm">
+        <md-card-content>
+          <md-input-container class="md-block">
+            <label>Degree</label>
+            <input name="degree" ng-model="education.degree" type="text" md-maxlength="50">
+            <div ng-messages="educationForm.employer.$error" ng-show="!educationForm.$pristine">
+              <div ng-message="maxlength">This seems too long, can you shorten it?</div>
+            </div>
+          </md-input-container>
+          <md-input-container class="md-block">
+            <label>School</label>
+            <input required name="school" ng-model="education.school" type="text" md-maxlength="50">
+            <div ng-messages="educationForm.school.$error" ng-show="!educationForm.$pristine">
+              <div ng-message="required">Required field</div>
+              <div ng-message="maxlength">This seems too long, can you shorten it?</div>
+            </div>
+          </md-input-container>
+          <md-input-container class="md-block">
+            <label>Type</label>
+            <input required name="type" ng-model="education.type" type="text" md-maxlength="50">
+            <div ng-messages="educationForm.type.$error" ng-show="!educationForm.$pristine">
+              <div ng-message="required">Required field</div>
+              <div ng-message="maxlength">This seems too long, can you shorten it?</div>
+            </div>
+          </md-input-container>
+          <h4>Start date</h4>
+          <md-datepicker ng-model="education.start_date" md-placeholder="Start date"></md-datepicker>
+          <h4>End date</h4>
+          <md-datepicker ng-model="education.end_date" md-placeholder="End date"></md-datepicker>
+        </md-card-content>
+        <md-card-action layout="row" layout-align="begin center">
+          <md-button ng-click="vm.deleteEducation(education.id)" class="md-warn">Delete</md-button>
+          <md-button ng-click="vm.update(education, educationForm)" ng-disabled="educationForm.$pristine">Save</md-button>
+          <md-checkbox ng-model="education.enabled" aria-label="Enabled" class="md-primary">
+              Enable for resume
+          </md-checkbox>
+        </md-card-action>
+      </form>
+    </md-card>
+    
+    <!-- New education form -->
+    <form name="vm.addEducationForm" ng-show="vm.creatingNew" novalidate>
+      <md-card>
+        <md-card-content>
+          <md-input-container class="md-block">
+            <label>Degree</label>
+            <input name="degree" ng-model="vm.addEducation.degree" type="text" md-maxlength="100">
+            <div ng-messages="vm.addEducationForm.employer.$error" ng-show="!vm.addEducationForm.$pristine">
+              <div ng-message="maxlength">This seems too long, can you shorten it?</div>
+            </div>
+          </md-input-container>
+          <md-input-container class="md-block">
+            <label>School</label>
+            <input required name="school" ng-model="vm.addEducation.school" type="text" md-maxlength="50">
+            <div ng-messages="vm.addEducationForm.school.$error" ng-show="!vm.addEducationForm.$pristine">
+              <div ng-message="required">Required field</div>
+              <div ng-message="maxlength">This seems too long, can you shorten it?</div>
+            </div>
+          </md-input-container>
+          <md-input-container class="md-block">
+            <label>Type</label>
+            <input required name="type" ng-model="vm.addEducation.type" type="text" md-maxlength="50">
+            <div ng-messages="vm.addEducationForm.type.$error" ng-show="!vm.addEducationForm.$pristine">
+              <div ng-message="required">Required field</div>
+              <div ng-message="maxlength">This seems too long, can you shorten it?</div>
+            </div>
+          </md-input-container>
+          <h4>Start date</h4>
+          <md-datepicker ng-model="vm.addEducation.start_date" md-placeholder="Start date"></md-datepicker>
+          <h4>End date</h4>
+          <md-datepicker ng-model="vm.addEducation.end_date" md-placeholder="End date"></md-datepicker>
+        </md-card-content>
+        <md-card-action layout="row" layout-align="begin center">
+          <md-button ng-click="vm.add()">Save</md-button>
+          <md-checkbox ng-model="vm.addEducation.enabled" aria-label="Enabled" class="md-primary">
+              Enable for resume
+          </md-checkbox>
+        </md-card-action>
+      </md-card>
     </form>
+    <!-- Fab button --> 
+    <md-button aria-label="Add Education" class="md-fab md-fab-bottom-right md-primary" ng-click="vm.creatingNew = !vm.creatingNew">
+      <md-tooltip md-direction="top" md-visible="tooltipVisible" md-autohide="false" >
+        <span ng-hide="vm.creatingNew">Add Education</span>
+        <span ng-show="vm.creatingNew">Go Back</span>
+      </md-tooltip>
+
+      <i class="fa fa-fw fa-plus" ng-hide="vm.creatingNew"></i>
+      <i class="fa fa-fw fa-undo" ng-show="vm.creatingNew"></i>
+    </md-button>
 </md-content>

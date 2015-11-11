@@ -17,7 +17,6 @@
             'autoresume.education',
             'autoresume.skills',
             'autoresume.work',
-            'autoresume.work.add',
-            'autoresume.education.add'
+            'autoresume.personal'
         ]);
 })()

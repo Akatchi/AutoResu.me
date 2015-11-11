@@ -25,11 +25,25 @@ $api->version('v1', function ($api) {
             $api->post('register', 'RegisterController@store');
 
             $api->group(['middleware' => 'jwt.auth'], function($api){
+                /** user resource */
                 $api->resource('user', 'UserController');
-                $api->resource('provider', 'ProviderController');
+
+                /** provider resources */
+                $api->resource('provider', 'ProviderController');                
                 $api->get('auth/linkedin', 'ProviderController@linkedin');
+                
+                /** skill resources */
                 $api->resource('skill', 'SkillController');
                 $api->resource('skilltype', 'SkillTypeController');
+                
+                /** work resource */
+                $api->resource('work', 'WorkController');
+
+                /** education resource */
+                $api->resource('education', 'EducationController');
+
+                /** Personal information resource */
+                $api->resource('personal', 'PersonalInformationController');
             });
             
             // Callback routes

@@ -5,79 +5,93 @@
         .controller('WorkController', WorkController);
 
     /* @ngInject */
-    function WorkController($log, WorkService, $mdToast, $state, $auth) {
+    function WorkController($log, WorkService, $mdToast, $state, $auth, workList, $filter) {
         var vm = this;
-
+        vm.deleteWork = deleteWork;
         vm.update = update;
+        vm.add = add;
         // the form errors which come bakc from the api.
         vm.formErrors = {};
+        vm.workList = workList.data;
+        vm.addWork = {};
 
-        // TOOD retrieve all the work entries from the server
-        vm.workList = {
-            "work": [
-                {
-                    "id": 1,
-                    "employer": "ZINN (Thuis)zorg, Wonen en Welzijn",
-                    "location": "Haren, Groningen, Netherlands",
-                    "position": "Service Desk",
-                    "description": "",
-                    "start_date": "2013-01-01",
-                    "end_date": "",
-                    "enabled": true
-                },
-                {
-                    "id": 2,
-                    "employer": "Hornbach Baumarkt AG",
-                    "location": "",
-                    "industry": "Retail",
-                    "position": "Medewerker",
-                    "description": "",
-                    "start_date": "2010-07-01",
-                    "end_date": "2010-11-01",
-                    "enabled": false
-                },
-                {
-                    "id": 3,
-                    "employer": "Bimpel",
-                    "location": "",
-                    "industry": "",
-                    "position": "Intern",
-                    "description": "",
-                    "start_date": "2010-02-01",
-                    "end_date": "2010-07-01",
-                    "enabled": false
-                }
-            ]
+        if(vm.workList.length > 0) {
+            angular.forEach(vm.workList, function(value){
+                value.start_date = new Date(value.start_date);
+                value.end_date = new Date(value.end_date);
+            });
         }
 
-        vm.deleteWork = function(workId) {
-            WorkService.delete(workId).$promise.then(
-                function(response) {
+
+        /**
+         * 
+         * deleteWork, handles the remove of the work entry by the id given.
+         * @param  Int      workId the work id which we want to delete
+         * @return void     we update the list with a filter
+         */
+        function deleteWork(workId) {
+            WorkService.delete({id: workId}).$promise.then(
+                function() {
+                    vm.workList = $filter('filter')(vm.workList, function(value){
+                        return value.id !== workId;
+                    });
                     $mdToast.show($mdToast.simple().content('Work entry deleted').hideDelay(3000).position('bottom right'));        
                 }, function(error) {
                     $log.debug(error);
                     $mdToast.show($mdToast.simple().content('Something went wrong, please try again').hideDelay(3000).position('bottom right'));        
                 }
             );
-        };
+        }
 
-        vm.create = function() {
-            $state.go('autoresume.work.add');
-        };
-        
         /**
-         * signup, handles the signup for any user
+         * Add, handles the adding of the work entry
+         * This raises errors in case we have any from the API.
+         * If response is correct it redirects to the work page.
+         */
+        function add(){
+            // somebody submitted the form and its valid            
+            if(vm.addWorkForm.$valid) {
+                // perform the call to the api with the user.
+                WorkService.save(vm.addWork).$promise.then(
+                    function(response) {
+                        vm.workList = response.data;
+                        // enable new date object
+                        angular.forEach(vm.workList, function(value){
+                            value.start_date = new Date(value.start_date);
+                            value.end_date = new Date(value.end_date);
+                        });
+
+                        // response went OK so go to the overview
+                        vm.creatingNew = false;
+                        // reset that form. 
+                        vm.addWork = {};
+                        vm.addWorkForm.$setPristine();
+                        vm.addWorkForm.$setUntouched();
+                    }, function(error) {
+                        // set proper form errors !
+                        $log.debug(error);
+                        // bad respo124nse somethign went wrong
+                        $mdToast.show($mdToast.simple().content('Something went wrong, please try again').hideDelay(3000).position('bottom right'));
+                    }
+                );
+            } else {
+                // set the form back to dirty coz somebody tried to submit.
+                vm.addWorkForm.$setDirty();
+            }
+        }
+
+        /**
+         * update, handles the update for any work item
          * This raises errors in case we have any from the API.
          * If response is correct it redirects to the home page.
          */
-        function update(){
+        function update(work, workForm){
             // somebody submitted the form and its valid            
-            if(vm.workForm.$valid) {
+            if(workForm.$valid) {
                 // perform the call to the api with the user.
-                WorkService.update(vm.workList).$promise.then(
-                    function(response) {
-                        // response went OK so lets reload the page
-                        $state.go('autoresume.work');
+                WorkService.update({id: work.id}, work).$promise.then(
+                    function() {
+                        workForm.$setPristine();
                     }, function(error) {
                         $log.debug(error);
                         // bad response somethign went wrong
@@ -87,7 +101,7 @@
             }
 
             // set the form back to dirty coz somebody tried to submit.
-            vm.workForm.$setDirty();
+            workForm.$setDirty();
         }
     }
 })();

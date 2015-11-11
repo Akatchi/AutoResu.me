@@ -17,9 +17,10 @@ class CreateWorkExperiencesTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->string('employer', 150);
             $table->string('position', 150);
+            $table->string('location', 255);
             $table->string('description')->nullable();
             $table->date('start_date');
-            $table->date('end_date');
+            $table->date('end_date')->nullable();
             $table->boolean('enabled');
             $table->timestamps();
 

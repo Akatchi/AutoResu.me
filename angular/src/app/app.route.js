@@ -59,6 +59,22 @@
           }
         }
       })
+      .state('autoresume.personal', {
+        url: '/personal',
+        views: {
+          'main@': {
+            'templateUrl': 'app/templates/views/autoresume/personal.html',
+            'controller': 'PersonalInformationController',
+            'controllerAs': 'vm'
+          }
+        },
+        resolve: {
+          /** @ngInject */
+          personal: function(PersonalService){
+            return PersonalService.query().$promise;
+          }
+        }
+      })
       .state('autoresume.work', {
         url: '/work',
         views: {
@@ -67,15 +83,11 @@
             controller: 'WorkController',
             controllerAs: 'vm'
           }
-        }
-      })
-      .state('autoresume.work.add', {
-        url: '/add',
-        views: {
-          'main@': {
-            templateUrl: 'app/templates/views/autoresume/add_work.html',
-            controller: 'AddWorkController',
-            controllerAs: 'vm'
+        },
+        resolve: {
+          /** @ngInject */
+          workList: function(WorkService) {
+            return WorkService.query().$promise;
           }
         }
       })
@@ -87,15 +99,11 @@
             controller: 'EducationController',
             controllerAs: 'vm'
           }
-        }
-      })
-      .state('autoresume.education.add', {
-        url: '/add',
-        views: {
-          'main@': {
-            templateUrl: 'app/templates/views/autoresume/add_education.html',
-            controller: 'AddEducationController',
-            controllerAs: 'vm'
+        },
+        resolve: {
+          /** @ngInject */
+          education: function(EducationService){
+            return EducationService.query().$promise;
           }
         }
       })
@@ -117,16 +125,6 @@
           },
           skilltypes: function(SkillTypeService) {
             return SkillTypeService.query().$promise;
-          }
-        }
-      })
-      .state('autoresume.skills.add', {
-        url: '/add',
-        views: {
-          'main@': {
-            templateUrl: 'app/templates/views/autoresume/add_skills.html',
-            controller: 'AddSkillsController',
-            controllerAs: 'vm'
           }
         }
       })

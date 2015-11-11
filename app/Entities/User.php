@@ -37,8 +37,22 @@ class User extends Model implements AuthenticatableContract,
      */
     protected $hidden = ['password', 'remember_token'];
 
+    /**
+     * [skills description]
+     * @return [type] [description]
+     */
     public function skills()
     {
         return $this->hasMany('AutoResume\Entities\Skill');
+    }
+
+    public function workExperiences()
+    {
+        return $this->hasMany('AutoResume\Entities\Work');
+    }
+
+    public function educations()
+    {
+        return $this->hasMany('AutoResume\Entities\Education');
     }
 }

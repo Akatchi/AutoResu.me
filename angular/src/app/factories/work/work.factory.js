@@ -10,9 +10,6 @@
             update: {
                 method: 'PUT'
             },
-            delete: {
-                method: 'DELETE'
-            },
             query: {
                 method: 'GET',
                 isArray: false

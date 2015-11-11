@@ -10,6 +10,7 @@
             'autoresume.factory.education',
             'autoresume.factory.skill',
             'autoresume.factory.skilltype',
-            'autoresume.factory.work'
+            'autoresume.factory.work',
+            'autoresume.factory.personal'
         ]);
 })();

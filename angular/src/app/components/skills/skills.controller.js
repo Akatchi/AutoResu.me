@@ -23,7 +23,7 @@
             if(skillForm.$valid) {
                 // perform the call to the api with the user.
                 SkillService.update(skill, {id: skill.id}).$promise.then(
-                    function(response) {
+                    function() {
                         // DISABLE THE SAVE BUTTON FOR THE FORM.!
                         skillForm.$setPristine();
                     }, function(error) {
@@ -71,9 +71,9 @@
         function deleteSkill(skillId) {
             // $log.debug($filter('filter')(vm.skillList, {id: !skillId}));
             SkillService.delete({id: skillId}).$promise.then(
-                function(response) {
+                function() {
                     // remove the view model thing
-                    vm.skillList = $filter('filter')(vm.skillList, function(value, index){
+                    vm.skillList = $filter('filter')(vm.skillList, function(value){
                         return value.id !== skillId;
                     });
 
