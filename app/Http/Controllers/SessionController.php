@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use AutoResume\Http\Requests;
 use AutoResume\Http\Controllers\Controller;
 use JWTAuth;
+use AutoResume\Entities\User;
 
 class SessionController extends Controller
 {
@@ -19,10 +20,14 @@ class SessionController extends Controller
     public function authenticate(Request $request)
     {
         $credentials = $request->only('email', 'password');
+        $user = User::whereEmail($credentials['email'])->first();
 
-        // admin is allowed to enter providers and remove them.
         $adminClaim = ['admin' => false];
-        
+        // see if we have an admin user on our hands
+        if($user != null){
+            $adminClaim = ['admin' => $user->hasRole('admin')];
+        }
+                
         try {
             // attempt to verify the credentials and create a token for the user
             if (! $token = JWTAuth::attempt($credentials, $adminClaim)) {

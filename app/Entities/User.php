@@ -55,4 +55,29 @@ class User extends Model implements AuthenticatableContract,
     {
         return $this->hasMany('AutoResume\Entities\Education');
     }
+
+    public function roles()
+    {
+        return $this->belongsToMany('AutoResume\Entities\Role');
+    }
+
+    public function hasRole($role)
+    {
+        if(is_string($role)) {
+            return $this->roles->contains('label', $role);
+        }
+
+        foreach($role as $r) {
+            if($this->hasRole($r->name)){
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public function personalInfo()
+    {
+        return $this->hasOne('AutoResume\Entities\PersonalInformation');
+    }
 }

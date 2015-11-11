@@ -6,8 +6,21 @@
     .run(runBlock);
 
   /** @ngInject */
-  function runBlock($log, $rootScope, $auth, $state) {
+  function runBlock($log, $rootScope, $auth, $state, $localStorage) {
     var rootScope = $rootScope;
+
+    rootScope.admin = $auth.getPayload().admin;
+    if(typeof $localStorage.email == 'undefined'){
+      rootScope.email = 'Not yet set';
+      rootScope.name = 'Not yet set';
+      rootScope.image = 'http://emerge-game.com/wp-content/uploads/unknown-user.png'
+    } else {
+      rootScope.email = $localStorage.email;
+      rootScope.name = $localStorage.name;
+      rootScope.image = $localStorage.image;
+    }
+    
+    
     // the watcher for the route changes
     rootScope.$on( '$stateChangeStart', function(e, toState){
         // The login check 

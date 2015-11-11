@@ -7,7 +7,7 @@
     // LoginController.$inject = ['$log'];
     
     /* @ngInject */
-    function LoginController($log, $auth, $mdToast, $state) {
+    function LoginController($log, $auth, $mdToast, $state, $rootScope) {
         var vm = this;
         // initial user model
         vm.user = {} 
@@ -37,7 +37,7 @@
                     vm.loginForm.email.$setValidity('required', false);
                     vm.loginForm.password.$setValidity('required', false);
                     // raise a toast.
-                    $mdToast.show($mdToast.simple().content('Invalid e-mai/password combination').hideDelay(3000).position('bottom right'));
+                    $mdToast.show($mdToast.simple().content('Invalid e-mail/password combination').hideDelay(3000).position('bottom right'));
                 });
             }
         }

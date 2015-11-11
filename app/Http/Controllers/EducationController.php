@@ -54,7 +54,7 @@ class EducationController extends Controller
      */
     public function show($id)
     {
-        return $this->response->collection(Skill::where('id', '=', $id)->where('user_id', '=', Auth::user()->id)->first(), new EducationTransformer);
+        return $this->response->collection(Education::where('id', '=', $id)->where('user_id', '=', Auth::user()->id)->get(), new EducationTransformer);
     }
 
 
@@ -78,12 +78,14 @@ class EducationController extends Controller
             'start_date' => $data['start_date'],
             'end_date' => $data['end_date']
         ];
-        
+
         $education = Education::where('user_id', '=', Auth::user()->id)->where('id', '=', $id)->first();
         if($education != null) {
             $education->update($data);
+        } else {
+            return response()->api('OK');
         }
-
+        
         return response()->api('OK');
     }
 

@@ -17,6 +17,7 @@ class CreatePersonalInformationsTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->string('first_name', 100);
             $table->string('last_name', 100);
+            $table->string('phone_number', 50);
             $table->date('birthday');
             $table->string('birthplace', 100);
             $table->string('address', 200);
@@ -25,6 +26,7 @@ class CreatePersonalInformationsTable extends Migration
             $table->string('email', 100);
             $table->string('website', 100)->nullable();
             $table->text('bio')->nullable();
+            $table->boolean('enabled');
             $table->timestamps();
             
             $table->foreign('user_id')

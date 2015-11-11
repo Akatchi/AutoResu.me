@@ -1,8 +1,9 @@
 <!-- Sidebar header/branding -->
-<md-toolbar class="md-tall md-hue-2">
+<md-toolbar class="md-tall md-hue-2" style="background-image: url({{$root.image}}); background-size: 44%; background-repeat-x: no-repeat; background-position-x: center;">
     <span flex></span>
     <div layout="column" class="md-toolbar-tools-bottom inset">
-    <user-avatar></user-avatar>
+    <user-avatar>
+    </user-avatar>
     <span></span>
     <div>{{ $root.name }}</div>
     <div>{{ $root.email }}</div>
@@ -11,7 +12,7 @@
 
 <!-- Sidebar menu items -->
 <md-list>
-    <div ui-sref-active="active" ui-sref="autoresume.admin" class="sidebar-page">
+    <div ui-sref-active="active" ui-sref="autoresume.admin" class="sidebar-page" ng-show="$root.admin">
         <md-list-item md-ink-ripple class="md-clickable"><p class="menu-item-text">Admin panel</p></md-list-item>
     </div>
     <div ui-sref-active="active" ui-sref="autoresume.providers" class="sidebar-page">

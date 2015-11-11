@@ -18,5 +18,8 @@ class UserTableSeeder extends Seeder
         $user->password = bcrypt('password');
 
         $user->save();
+
+        // create an admin
+        
     }
 }

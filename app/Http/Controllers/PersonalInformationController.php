@@ -6,6 +6,11 @@ use Illuminate\Http\Request;
 
 use AutoResume\Http\Requests;
 use AutoResume\Http\Controllers\Controller;
+use AutoResume\Transformers\PersonalInformationTransformer;
+use AutoResume\Entities\PersonalInformation;
+
+
+use Auth;
 
 class PersonalInformationController extends Controller
 {
@@ -16,17 +21,7 @@ class PersonalInformationController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        return $this->response->item(Auth::user()->personalInfo, new PersonalInformationTransformer);
     }
 
     /**
@@ -37,7 +32,35 @@ class PersonalInformationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->only(['address', 'bio', 'birthday', 'birthplace', 'city', 'email', 'enabled', 'first_name', 'last_name', 'phone_number', 'postalcode', 'website']);
+
+        $personalInfo = PersonalInformation::where('user_id', '=', Auth::user()->id)->first();
+
+        if($personalInfo != null) {
+            $data['enabled'] = (($data['enabled']) ? 1 : 0);
+            $personalInfo->update($data);
+            // updating
+        } else {
+            // creating
+            $personalInfo = new PersonalInformation();
+            $personalInfo->enabled = (($data['enabled']) ? 1 : 0);
+            $personalInfo->user_id = Auth::user()->id;
+            $personalInfo->first_name = $data['first_name'];
+            $personalInfo->last_name = $data['last_name'];
+            $personalInfo->phone_number = $data['phone_number'];
+            $personalInfo->birthday = $data['birthday'];
+            $personalInfo->birthplace = $data['birthplace'];
+            $personalInfo->address = $data['address'];
+            $personalInfo->postalcode = $data['postalcode'];
+            $personalInfo->city = $data['city'];
+            $personalInfo->email = $data['email'];
+            $personalInfo->website = $data['website'];
+            $personalInfo->bio = $data['bio'];
+
+            $personalInfo->save();
+        }
+
+        return response()->api('OK');
     }
 
     /**
@@ -52,17 +75,6 @@ class PersonalInformationController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -71,7 +83,7 @@ class PersonalInformationController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        return response()->api('IN UPDATE');
     }
 
     /**

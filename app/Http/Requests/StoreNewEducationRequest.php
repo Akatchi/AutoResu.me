@@ -4,6 +4,8 @@ namespace AutoResume\Http\Requests;
 
 use AutoResume\Http\Requests\Request;
 
+use Auth;
+
 class StoreNewEducationRequest extends Request
 {
     /**

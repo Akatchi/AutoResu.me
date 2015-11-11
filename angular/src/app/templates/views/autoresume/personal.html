@@ -1,20 +1,97 @@
 <md-content layout-padding flex-gt-lg="80" flex-offset-gt-lg="10">
     <h1>Personal Information</h1>
     <md-card>
+      <md-content layout="column">
         <form name="vm.personalInfoForm" novalidate>
             <md-card-content>
-                <md-input-container class="md-block">
+              <md-content layout="row" layout-sm="column">
+                <md-input-container flex>
                   <label>First name</label>
-                  <input name="firstName" ng-model="personal.first_name" value="{{ personal.first_name }}" type="text" md-maxlength="50">
-                  <div ng-messages="vm.personalInfoForm.firstName.$error">
+                  <input name="firstName" ng-model="vm.personal.first_name" value="{{ vm.personal.first_name }}" type="text" md-maxlength="50" required>
+                  <div ng-messages="vm.personalInfoForm.firstName.$error" ng-show="!vm.personalInfoForm.$pristine">
+                    <div ng-message="required">This field is required</div>
                     <div ng-message="md-maxlength">This seems too long, can you shorten it?</div>
                   </div>
+                </md-input-container>
+                <md-input-container flex-offset-gt-md="10" flex>
+                  <label>Last name</label>
+                  <input name="lastName" ng-model="vm.personal.last_name" value="{{ vm.personal.last_name }}" type="text" md-maxlength="50" required>
+                  <div ng-messages="vm.personalInfoForm.lastName.$error" ng-show="!vm.personalInfoForm.$pristine">
+                    <div ng-message="required">This field is required</div>
+                    <div ng-message="md-maxlength">This seems too long, can you shorten it?</div>
+                  </div>
+                </md-input-container>
+              </md-content>
+                <h4>Birthday</h4>
+                <md-datepicker ng-model="vm.personal.birthday" md-placeholder="Start date"></md-datepicker>
+                <md-input-container class="md-block">
+                   <label>Birthplace</label>
+                  <input name="birthplace" ng-model="vm.personal.birthplace" value="{{ vm.personal.birthplace }}" type="t1ext" md-maxlength="50">
+                  <div ng-messages="vm.personalInfoForm.birthplace.$error" ng-show="!vm.personalInfoForm.$pristine">
+                    <div ng-message="md-maxlength">This seems too long, can you shorten it?</div>
+                  </div>
+                </md-input-container>
+                <md-input-container class="md-block">
+                  <label>Phone</label>
+                  <input name="phone" ng-model="vm.personal.phone_number" value="{{ vm.personal.address }}" type="text" md-maxlength="50" required>
+                  <div ng-messages="vm.personalInfoForm.phone.$error" ng-show="!vm.personalInfoForm.$pristine">
+                    <div ng-message="required">This field is required</div>
+                    <div ng-message="md-maxlength">This seems too long, can you shorten it?</div>
+                  </div>
+                </md-input-container>
+                <md-input-container class="md-block">
+                  <label>Address</label>
+                  <input name="address" ng-model="vm.personal.address" value="{{ vm.personal.address }}" type="text" md-maxlength="50" required>
+                  <div ng-messages="vm.personalInfoForm.address.$error" ng-show="!vm.personalInfoForm.$pristine">
+                    <div ng-message="required">This field is required</div>
+                    <div ng-message="md-maxlength">This seems too long, can you shorten it?</div>
+                  </div>
+                </md-input-container>
+                <md-content layout="row" layout-sm="column">
+                  <md-input-container flex>
+                    <label>Postcode</label>
+                    <input name="postcode" ng-model="vm.personal.postalcode" value="{{ vm.personal.postalcode }}" type="text" md-maxlength="10" required>
+                    <div ng-messages="vm.personalInfoForm.address.$error" ng-show="!vm.personalInfoForm.$pristine">
+                      <div ng-message="required">This field is required</div>
+                      <div ng-message="md-maxlength">This seems too long, can you shorten it?</div>
+                    </div>
+                  </md-input-container>
+                  <md-input-container flex-offset-gt-md="10" flex>
+                    <label>City</label>
+                    <input name="city" ng-model="vm.personal.city" value="{{ vm.personal.city }}" type="text" md-maxlength="50" required>
+                    <div ng-messages="vm.personalInfoForm.city.$error" ng-show="!vm.personalInfoForm.$pristine">
+                      <div ng-message="required">This field is required</div>
+                      <div ng-message="md-maxlength">This seems too long, can you shorten it?</div>
+                    </div>
+                  </md-input-container>
+                </md-content>
+                <md-input-container class="md-block">
+                  <label>E-mail</label>
+                  <input name="email" ng-model="vm.personal.email" value="{{ vm.personal.email }}" type="email" required>
+                  <div ng-messages="vm.personalInfoForm.email.$error" ng-show="!vm.personalInfoForm.$pristine">
+                    <div ng-message="required">This field is required</div>
+                  </div>
+                </md-input-container>
+                <md-input-container class="md-block">
+                  <label>Website</label>
+                  <input name="website" ng-model="vm.personal.website" value="{{ vm.personal.website }}" type="url">
+                  <div ng-messages="vm.personalInfoForm.website.$error" ng-show="!vm.personalInfoForm.$pristine">
+                    <div ng-message="url">This doesn't look like an URL</div>
+                  </div>
+                </md-input-container>
+                <md-input-container class="md-block">
+                  <label>Biography</label>
+                  <textarea name="bio" ng-model="vm.personal.bio" value="{{ vm.personal.bio }}" columns="3"></textarea>
                 </md-input-container>
             </md-card-content>
 
             <md-card-actions layout="row" layout-align="begin center">
                 <md-button ng-click="vm.save()" ng-disabled="vm.personalInfoForm.$pristine">Save</md-button>
+                <md-checkbox ng-model="vm.personal.enabled" aria-label="Enable Bio" class="md-primary">
+                  Enable for resume
+                </md-checkbox>
             </md-card-actions>
         </form>
+      </md-content>
     </md-card>
 </md-content>
