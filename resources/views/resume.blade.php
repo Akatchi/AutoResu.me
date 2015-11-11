@@ -40,9 +40,6 @@
                 position: fixed;
             }
 
-            /* Generator page */                /* a4 feel */
-            .gen-container { width: 90%; max-width: 900px; margin: 0 auto; margin-bottom: 40px; }
-
             /* General */
             .gen-container a, .gen-container a:visited, .gen-container a:hover, .gen-container a:link { color: #000; text-decoration: none; }
             .gen-container a:hover { text-decoration: underline; }
@@ -55,11 +52,10 @@
             .item p, .item label { display: inline; }
 
             /* The different parts */
-            .pictures { margin: 6px 40px 20px 0; width: 200px; float: left; }
-            .personal { margin: 0px 0 0px 0; width: calc(100% - 240px); float: left; }
-            .bio { margin-bottom: 6px; width: calc(100% - 240px); float: right; }
+            .pictures { margin: 6px 40px 20px 0; width: 200px;  }
+            .personal { margin: 0px 0 0px 0; width: calc(100% - 240px);  }
 
-            .pictures div.picture { float: left; display: block; max-width: 200px; margin: 0 20px 20px 0; }
+            .pictures div.picture {  display: block; max-width: 200px; margin: 0 20px 20px 0; }
             .pictures span.picture img { width: 200px; height: 200px; border: 1px solid black; }
 
             .picture {
