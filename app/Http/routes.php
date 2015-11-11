@@ -48,6 +48,8 @@ $api->version('v1', function ($api) {
             
             // Callback routes
             $api->get('auth/linkedin/callback', 'ProviderController@linkedinCallback');
+
+            $api->get('generate', 'PDFController@generate');
         });
     });
 });
