@@ -74,7 +74,7 @@ class EducationController extends Controller
             'degree' => $data['degree'],
             'school' => $data['school'],
             'type' => $data['type'],
-            'enabled' => (($data['enabled']) ? 1 : 0),
+            'enabled' => (($data['enabled'] == 'true') ? 1 : 0),
             'start_date' => $data['start_date'],
             'end_date' => $data['end_date']
         ];

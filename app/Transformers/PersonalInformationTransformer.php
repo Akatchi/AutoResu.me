@@ -14,6 +14,7 @@ class PersonalInformationTransformer extends TransformerAbstract
             'id' => $pi->id,
             'first_name' => $pi->first_name,
             'last_name' => $pi->last_name,
+            'gender' => $pi->gender,
             'phone_number' => $pi->phone_number,
             'birthday' => $pi->birthday,
             'birthplace' => $pi->birthplace, 
@@ -23,7 +24,7 @@ class PersonalInformationTransformer extends TransformerAbstract
             'email' => $pi->email,
             'website' => $pi->website,
             'bio' => $pi->bio,
-            'enabled' => $pi->enabled,
+            'enabled' => (($pi->enabled == 1) ? true : false),
         ];
     }
 }

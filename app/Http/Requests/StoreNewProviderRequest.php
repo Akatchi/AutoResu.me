@@ -3,6 +3,7 @@
 namespace AutoResume\Http\Requests;
 
 use AutoResume\Http\Requests\Request;
+use Auth;
 
 class StoreNewSkillRequest extends Request
 {
@@ -13,7 +14,11 @@ class StoreNewSkillRequest extends Request
      */
     public function authorize()
     {
-        return true;
+        if(Auth::user()->hasRole('admin')) {
+            return true;
+        } else {
+            false;
+        }
     }
 
     /**
@@ -24,9 +29,9 @@ class StoreNewSkillRequest extends Request
     public function rules()
     {
         return [
-            'description' => 'required',
-            'skill'  => 'required',
-            'type' => 'exists:skill_types,name',
+            'pretty_name' => 'required',
+            'name'  => 'required',
+            'enabled' => 'boolean',
         ];
     }
 }

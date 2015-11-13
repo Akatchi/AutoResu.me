@@ -1,5 +1,5 @@
 <!-- Sidebar header/branding -->
-<md-toolbar class="md-tall md-hue-2" style="background-image: url({{$root.image}}); background-size: 44%; background-repeat-x: no-repeat; background-position-x: center;">
+<md-toolbar class="md-tall md-hue-2" style="background-image: url(data:image/png;base64,{{$root.image}}); background-size: 44%; background-repeat-x: no-repeat; background-position-x: center;">
     <span flex></span>
     <div layout="column" class="md-toolbar-tools-bottom inset">
     <user-avatar>
@@ -15,25 +15,25 @@
     <div ui-sref-active="active" ui-sref="autoresume.admin" class="sidebar-page" ng-show="$root.admin">
         <md-list-item md-ink-ripple class="md-clickable"><p class="menu-item-text">Admin panel</p></md-list-item>
     </div>
-    <div ui-sref-active="active" ui-sref="autoresume.providers" class="sidebar-page">
+    <div ui-sref-active="active" ui-sref="autoresume.retrieve" class="sidebar-page" ng-hide="$root.admin">
         <md-list-item md-ink-ripple class="md-clickable"><p class="menu-item-text">Retrieve data</p></md-list-item>
     </div>
-    <div ui-sref-active="active" ui-sref="autoresume.personal" class="sidebar-page">
+    <div ui-sref-active="active" ui-sref="autoresume.personal" class="sidebar-page" ng-hide="$root.admin">
         <md-list-item md-ink-ripple class="md-clickable"><p class="menu-item-text">Profile</p></md-list-item>
     </div>
-    <div ui-sref-active="active" ui-sref="autoresume.photo" class="sidebar-page">
+    <div ui-sref-active="active" ui-sref="autoresume.photo" class="sidebar-page" ng-hide="$root.admin">
         <md-list-item md-ink-ripple class="md-clickable"><p class="menu-item-text">Photo</p></md-list-item>
     </div>
-    <div ui-sref-active="active" ui-sref="autoresume.education" class="sidebar-page">
+    <div ui-sref-active="active" ui-sref="autoresume.education" class="sidebar-page" ng-hide="$root.admin">
         <md-list-item md-ink-ripple class="md-clickable"><p class="menu-item-text">Education</p></md-list-item>
     </div>
-    <div ui-sref-active="active" ui-sref="autoresume.work" class="sidebar-page">
+    <div ui-sref-active="active" ui-sref="autoresume.work" class="sidebar-page" ng-hide="$root.admin">
         <md-list-item md-ink-ripple class="md-clickable"><p class="menu-item-text">Work</p></md-list-item>
     </div>
-    <div ui-sref-active="active" ui-sref="autoresume.skills" class="sidebar-page">
+    <div ui-sref-active="active" ui-sref="autoresume.skills" class="sidebar-page" ng-hide="$root.admin">
         <md-list-item md-ink-ripple class="md-clickable"><p class="menu-item-text">Skills</p></md-list-item>
     </div>
-    <div ui-sref-active="active" ui-sref="autoresume.generator" class="sidebar-page">
+    <div ui-sref-active="active" ui-sref="autoresume.generator" class="sidebar-page" ng-hide="$root.admin">
         <md-list-item md-ink-ripple class="md-clickable"><p class="menu-item-text">Generate resume</p></md-list-item>
     </div>
 </md-list>

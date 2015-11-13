@@ -17,7 +17,7 @@ class EducationTransformer extends TransformerAbstract
             'type' => $education->type,
             'start_date' => $education->start_date, 
             'end_date' => $education->end_date, 
-            'enabled' => $education->enabled, 
+            'enabled' => (($education->enabled == 1) ? true : false),
         ];
     }
 }

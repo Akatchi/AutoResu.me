@@ -26,6 +26,7 @@ class StorePersonalInformationRequest extends Request
         return [
             'first_name' => 'required|max:255',
             'last_name' => 'required|max:255',
+            'gender' => 'required',
             'phone_number' => 'required|max:100',
             'birthday' => 'required|date',
             'birthplace' => 'sometimes',

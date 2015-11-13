@@ -80,4 +80,9 @@ class User extends Model implements AuthenticatableContract,
     {
         return $this->hasOne('AutoResume\Entities\PersonalInformation');
     }
+
+    public function photos()
+    {
+        return $this->hasMany('AutoResume\Entities\Photo');
+    }
 }

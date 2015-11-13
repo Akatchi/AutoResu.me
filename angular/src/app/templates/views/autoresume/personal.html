@@ -22,6 +22,14 @@
                   </div>
                 </md-input-container>
               </md-content>
+              <md-input container class="md-block">
+                <label>Gender</label>
+                <md-select ng-model="vm.personal.gender">
+                  <md-option ng-repeat="type in vm.genderTypes" value="{{ type.value }}">
+                    {{ type.pretty }}
+                  </md-option>
+                </md-select>
+              </md-input-container>
                 <h4>Birthday</h4>
                 <md-datepicker ng-model="vm.personal.birthday" md-placeholder="Start date"></md-datepicker>
                 <md-input-container class="md-block">

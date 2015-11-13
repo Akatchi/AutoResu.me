@@ -14,6 +14,10 @@ class UserTransformer extends TransformerAbstract
      */
     protected $availableIncludes = [
         'work',
+        'photo',
+        'education',
+        'skill',
+        'personal',
     ];
 
     public function transform(User $user)
@@ -37,5 +41,33 @@ class UserTransformer extends TransformerAbstract
         $work = $user->workExperiences;
 
         return $this->collection($work, new WorkTransformer);
+    }
+
+    public function includePhoto(User $user)
+    {
+        $photos = $user->photos;
+
+        return $this->collection($photos, new PhotoTransformer);
+    }
+
+    public function includeEducation(User $user)
+    {
+        $education = $user->educations;
+
+        return $this->collection($education, new EducationTransformer);
+    }
+
+    public function includeSkill(User $user)
+    {
+        $skills = $user->skills;
+
+        return $this->collection($skills, new SkillTransformer);
+    }
+
+    public function includePersonal(User $user)
+    {
+        $personalInfo = $user->personalInfo;
+
+        return $this->item($personalInfo, new PersonalInformationTransformer);
     }
 }

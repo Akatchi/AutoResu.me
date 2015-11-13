@@ -41,7 +41,7 @@ class WorkController extends Controller
         $work->description = $data['description'];
         $work->start_date = $data['start_date'];
         $work->end_date = $data['end_date'];
-        $work->enabled = (($data['enabled']) ? 1 : 0);
+        $work->enabled = (($data['enabled'] == 'true') ? 1 : 0);
         $work->save();
 
         return $this->response->collection(Auth::user()->workExperiences, new WorkTransformer());

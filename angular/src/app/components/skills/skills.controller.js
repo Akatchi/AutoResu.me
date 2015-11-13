@@ -20,6 +20,7 @@
         vm.formErrors = {};
     
         function update(skill, skillForm) {
+            $log.debug(skill);
             if(skillForm.$valid) {
                 // perform the call to the api with the user.
                 SkillService.update(skill, {id: skill.id}).$promise.then(

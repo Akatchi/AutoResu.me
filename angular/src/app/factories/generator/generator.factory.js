@@ -2,21 +2,20 @@
     'use strict';
     angular
         .module('autoresume.factory.generator', [])
-        .factory('Generator', GeneratorFactory);
+        .factory('GeneratorService', GeneratorService);
 
     // GeneratorFactory.$inject = ['$resource'];
 
     /* @ngInject */
-    function GeneratorFactory($resource) {
-      return $resource('app/placeholders/generator/:filename.json', {}, {
+    function GeneratorService($resource, API_URL) {
+      var data =  $resource(API_URL + 'user/:id', {id: '@_id'}, {
         query: {
           method:'GET',
-          params: {
-            filename:'generator'
-          },
           isArray:false
         }
       });
+
+      return data;
     }
 
 })();

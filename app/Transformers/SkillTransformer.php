@@ -35,7 +35,7 @@ class SkillTransformer extends TransformerAbstract
             'id' => $skill->id,
             'skill' => $skill->name,
             'description' => $skill->description,
-            'enabled' => (($skill->enabled == 1) ? true : false) ,
+            'enabled' => (($skill->enabled == 1) ? true : false)
         ];
     }
 

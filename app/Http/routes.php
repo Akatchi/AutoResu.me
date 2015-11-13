@@ -31,7 +31,9 @@ $api->version('v1', function ($api) {
                 /** provider resources */
                 $api->resource('provider', 'ProviderController');                
                 $api->get('auth/linkedin', 'ProviderController@linkedin');
-                
+                $api->get('auth/facebook', 'ProviderController@facebook');
+                $api->get('auth/github', 'ProviderController@github');
+
                 /** skill resources */
                 $api->resource('skill', 'SkillController');
                 $api->resource('skilltype', 'SkillTypeController');
@@ -44,10 +46,17 @@ $api->version('v1', function ($api) {
 
                 /** Personal information resource */
                 $api->resource('personal', 'PersonalInformationController');
+
+                /** Photos resource */
+                $api->resource('photo', 'PhotoController');
+
+                $api->get('pdf/generate', 'PDFController@generatePdf');
             });
             
             // Callback routes
             $api->get('auth/linkedin/callback', 'ProviderController@linkedinCallback');
+            $api->get('auth/facebook/callback', 'ProviderController@facebookCallback');
+            $api->get('auth/github/callback', 'ProviderController@githubCallback');
         });
     });
 });

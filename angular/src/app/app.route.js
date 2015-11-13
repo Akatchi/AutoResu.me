@@ -22,12 +22,12 @@
           admin: false // these are the generic routes, no admin required.
         }
       })
-      .state('autoresume.home', {
+      .state('autoresume.retrieve', {
         url: '/',
         views: {
           'main@': {
             templateUrl: 'app/templates/views/autoresume/home.html',
-            controller: 'HomeController',
+            controller: 'RetrieveController',
             controllerAs: 'vm'
           }
         }
@@ -39,6 +39,12 @@
             templateUrl: 'app/templates/views/autoresume/generator.html',
             controller: 'GeneratorController',
             controllerAs: 'vm'
+          }
+        },
+        resolve: {
+          /** @ngInject */
+          generatorData: function(GeneratorService) {
+            return GeneratorService.query({include: 'work,personal,skill.skilltype,education,photo'}).$promise;
           }
         }
       })
@@ -57,6 +63,12 @@
             controller: 'AdminHomeController',
             controllerAs: 'vm'
           }
+        },
+        resolve: {
+          /** @ngInject */
+          providers: function(oAuth) {
+            return oAuth.query().$promise;
+          }
         }
       })
       .state('autoresume.personal', {
@@ -72,6 +84,22 @@
           /** @ngInject */
           personal: function(PersonalService){
             return PersonalService.query().$promise;
+          }
+        }
+      })
+      .state('autoresume.photo', {
+        url: '/photo',
+        views: {
+          'main@': {
+            templateUrl: 'app/templates/views/autoresume/photo.html',
+            controller: 'PhotoController',
+            controllerAs: 'vm'
+          }
+        },
+        resolve: {
+          /** @ngInject */
+          photos: function(PhotoService){
+            return PhotoService.query().$promise;
           }
         }
       })

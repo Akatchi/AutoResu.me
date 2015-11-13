@@ -1,11 +1,9 @@
-<md-content layout-padding flex="50" flex-offset="25">
-    <form name="vm.adminForm">
+<md-content layout-padding flex="80" flex-offset="10">
         <h1> Admin Home </h1>
-
-        <md-input-container ng-repeat="provider in vm.providerList.providers">
-            <md-card>
+          <md-card ng-repeat="provider in vm.providerList">
+            <form name="vm.adminForm">
               <md-card-content>
-                <md-input-container>
+                <md-input-container class="md-block">
                   <label>Display name</label>
                   <input required name="pretty_name" ng-model="provider.pretty_name" type="text" md-maxlength="50">
                   <div ng-messages="vm.adminForm.pretty_name.$error" ng-show="!vm.adminForm.$pristine">
@@ -13,7 +11,7 @@
                     <div ng-message="maxlength">This seems too long, can you shorten it?</div>
                   </div>
                 </md-input-container>
-                <md-input-container>
+                <md-input-container class="md-block">
                   <label>Provider name</label>
                   <input required name="name" ng-model="provider.name" type="text" md-maxlength="50">
                   <div ng-messages="vm.adminForm.name.$error" ng-show="!vm.adminForm.$pristine">
@@ -21,14 +19,12 @@
                     <div ng-message="maxlength">This seems too long, can you shorten it?</div>
                   </div>
                 </md-input-container>
-              <div class="md-actions" layout="row" layout-align="end center">
+              <md-card-action class="md-actions" layout="row" layout-align="begin center">
+                <md-button class="md-primary" ng-click="vm.update()">Update</md-button>
                 <md-checkbox ng-model="provider.enabled" aria-label="Enabled" class="md-primary">
                     Enabled
                 </md-checkbox>
-              </div>
-            </md-card>
-        </md-input-container>
-
-        <md-button class="md-raised md-primary" ng-click="vm.update()">Update</md-button>
-    </form>
+              </md-card-action>
+          </form>
+        </md-card>
 </md-content>

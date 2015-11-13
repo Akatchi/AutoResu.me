@@ -9,14 +9,27 @@
   function runBlock($log, $rootScope, $auth, $state, $localStorage) {
     var rootScope = $rootScope;
 
-    rootScope.admin = $auth.getPayload().admin;
+    if(typeof $auth.getPayload() !== 'undefined') {
+      rootScope.admin = $auth.getPayload().admin;
+    } else {
+      rootScope.admin = false;
+    }
+    
     if(typeof $localStorage.email == 'undefined'){
       rootScope.email = 'Not yet set';
-      rootScope.name = 'Not yet set';
-      rootScope.image = 'http://emerge-game.com/wp-content/uploads/unknown-user.png'
     } else {
       rootScope.email = $localStorage.email;
+    }
+
+    if (typeof $localStorage.name == 'undefined') {
+      rootScope.name = 'Not yet set';
+    } else {
       rootScope.name = $localStorage.name;
+    }
+    
+    if(typeof $localStorage.image == 'undefined') {
+      rootScope.image = 'http://emerge-game.com/wp-content/uploads/unknown-user.png'
+    } else {
       rootScope.image = $localStorage.image;
     }
     

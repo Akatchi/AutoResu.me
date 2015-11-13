@@ -70,13 +70,12 @@ class SkillController extends Controller
     {
         $data = $request->only(['description', 'skill', 'skilltype', 'enabled']);
         $data['skilltype'] = json_decode($data['skilltype'], true);
-
         // set the parameters correctly
         $data = [
             'name' => $data['skill'],
             'description' => $data['description'],
             'skilltype' => $data['skilltype'],
-            'enabled' => (($data['enabled']) ? 1 : 0),
+            'enabled' => (($data['enabled'] == 'true') ? 1 : 0),
         ];
 
         $skill = Skill::where('user_id', '=', Auth::user()->id)->where('id', '=', $id)->first();

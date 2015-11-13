@@ -40,4 +40,16 @@ return [
         'client_id' => env('LINKEDIN_CLIENT_ID'),
         'redirect' => env('LINKEDIN_REDIRECT'), 
     ],
+
+    'facebook' => [
+        'client_secret' => env('FACEBOOK_SECRET'),
+        'client_id' => env('FACEBOOK_CLIENT_ID'),
+        'redirect' => env('FACEBOOK_REDIRECT'),
+    ],
+
+    'github' => [
+        'client_secret' => env('GITHUB_SECRET'),
+        'client_id' => env('GITHUB_CLIENT_ID'),
+        'redirect' => env('GITHUB_REDIRECT'),
+    ],
 ];

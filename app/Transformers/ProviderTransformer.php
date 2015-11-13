@@ -12,7 +12,7 @@ class ProviderTransformer extends TransformerAbstract
         return [
             'name' => $provider->name,
             'pretty_name' => $provider->pretty_name,
-            'enabled' => $provider->enabled,
+            'enabled' => (($provider->enabled == 1) ? true : false),
         ];
     }
 }

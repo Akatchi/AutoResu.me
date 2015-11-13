@@ -34,7 +34,7 @@
                             // response OK
                             
                             // response went OK so lets redirect home
-                            $state.go('autoresume.home');
+                            $state.go('autoresume.retrieve');
                         }, function(error) {
                             $log.debug(error);
                             // bad response somethign went wrong

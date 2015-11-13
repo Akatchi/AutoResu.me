@@ -4,7 +4,7 @@ namespace AutoResume\Http\Requests;
 
 use AutoResume\Http\Requests\Request;
 
-class StoreNewSkillRequest extends Request
+class StoreNewPhotoRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,9 +24,8 @@ class StoreNewSkillRequest extends Request
     public function rules()
     {
         return [
-            'description' => 'required',
-            'skill'  => 'required',
-            'type' => 'exists:skill_types,name',
+            'name' => 'required',
+            'url' => 'url',
         ];
     }
 }

@@ -9,7 +9,6 @@ use AutoResume\Http\Controllers\Controller;
 use AutoResume\Transformers\PersonalInformationTransformer;
 use AutoResume\Entities\PersonalInformation;
 
-
 use Auth;
 
 class PersonalInformationController extends Controller
@@ -32,10 +31,10 @@ class PersonalInformationController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->only(['address', 'bio', 'birthday', 'birthplace', 'city', 'email', 'enabled', 'first_name', 'last_name', 'phone_number', 'postalcode', 'website']);
+        $data = $request->only(['gender', 'address', 'bio', 'birthday', 'birthplace', 'city', 'email', 'enabled', 'first_name', 'last_name', 'phone_number', 'postalcode', 'website']);
 
         $personalInfo = PersonalInformation::where('user_id', '=', Auth::user()->id)->first();
-
+        
         if($personalInfo != null) {
             $data['enabled'] = (($data['enabled']) ? 1 : 0);
             $personalInfo->update($data);

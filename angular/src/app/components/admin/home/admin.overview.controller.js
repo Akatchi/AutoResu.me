@@ -4,7 +4,7 @@
         .module('autoresume.admin.home', [])
         .controller('AdminHomeController', AdminHomeController);
     /* @ngInject */
-    function AdminHomeController($log, AdminAuthService, $mdToast, $state, $auth) {
+    function AdminHomeController(providers, oAuth, $log, $mdToast, $state, $auth) {
         var vm = this;
 
         vm.update = update;
@@ -12,25 +12,7 @@
         // the form errors which come bakc from the api.
         vm.formErrors = {};
 
-        vm.providerList = {
-            "providers": [
-                {
-                    "name": "facebook",
-                    "pretty_name": "Facebook",
-                    "enabled": true
-                },
-                {
-                    "name": "linkedin",
-                    "pretty_name": "LinkedIn",
-                    "enabled": false
-                },
-                {
-                    "name": "github",
-                    "pretty_name": "Github",
-                    "enabled": true
-                }
-            ] 
-        }
+        vm.providerList = providers.data;
 
         /**
          * Handles teh update for the oauth providers
@@ -41,7 +23,7 @@
             // somebody submitted the form and its valid            
             if(vm.adminForm.$valid) {
                 // perform the call to the api with the user.
-                AdminAuthService.update(vm.providerList).$promise.then(
+                oAuth.update(vm.providerList).$promise.then(
                     function(response) {
                         // response went OK so lets reload the page
                         $state.go('autoresume.admin.home');

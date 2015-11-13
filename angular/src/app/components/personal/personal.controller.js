@@ -4,9 +4,24 @@
         .module('autoresume.personal', ['ngMessages'])
         .controller('PersonalInformationController', PersonalInformationController);
     /* @ngInject */
-    function PersonalInformationController($log, personal, PersonalService, $localStorage, $rootScope) {
+    function PersonalInformationController($log, personal, PersonalService, $localStorage, $rootScope, $mdToast) {
         var vm = this;
         vm.personal = personal.data;
+        vm.genderTypes = [
+            {
+                value: 'male',
+                pretty: 'Male'
+            },
+            {
+                value: 'female',
+                pretty: 'Female'
+            },
+            {
+                value: 'other',
+                pretty: 'Other'
+            }
+        ];
+
         vm.personal.birthday = new Date(vm.personal.birthday);
         vm.save = save;
         activate();

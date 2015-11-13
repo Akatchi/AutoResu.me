@@ -1,13 +1,20 @@
-<md-content flex layout-padding> 
-    <h1> Home </h1>
+<md-content flex layout-padding flex-gt-lg="80" flex-offset-gt-lg="10"> 
+    <h1> Retrieve </h1>
 
     <!-- Below is a list with all the different login providers that can be used
     To sync the data from the user -->
-    <div ng-repeat="item in vm.config.data">
-      <div ng-show="item.enabled">
-        <md-button class="md-raised" ng-click="vm.authenticate(item.name)">Obtain data from {{ item.pretty_name }}</md-button><br>
-      </div>
+    <div ng-repeat="item in vm.config.data" >
+    <md-card ng-if="item.enabled">
+        <md-card-content>
+            <md-content layout="column" layout-sm="column">
+                <h3>{{item.pretty_name}}</h3>
+                <p>A new window/tab will be opened to our provider to log in there.</p>
+                <p>After that we'll be able to fillout some of the data that we can gather.</p>
+            </md-content>
+        </md-card-content>
+        <md-card-action layout="begin center">
+            <md-button ng-click="vm.authenticate(item.name)">Obtain data from {{ item.pretty_name }}</md-button>
+        </md-card-action>
+    </md-card>        
     </div>
-
-    <a href="#/generator" class="md-button md-raised md-primary">Generate resume</a>
 </md-content>

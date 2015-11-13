@@ -11,6 +11,7 @@
             'autoresume.factory.skill',
             'autoresume.factory.skilltype',
             'autoresume.factory.work',
-            'autoresume.factory.personal'
+            'autoresume.factory.personal',
+            'autoresume.factory.photo'
         ]);
 })();

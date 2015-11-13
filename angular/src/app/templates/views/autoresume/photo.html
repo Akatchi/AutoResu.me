@@ -1,0 +1,13 @@
+<md-content layout-padding flex-gt-lg="80" flex-offset-gt-lg="10">
+    <h1>Personal Information</h1>
+    <md-card ng-repeat="item in vm.photos">
+        <img ng-src="data:image/png;base64,{{item.url}}" class="md-card-image">
+
+        <md-card-action layout="row" layout-align="begin center">
+            <md-button ng-click="vm.add()" ng-disabled="vm.addSkillForm.$pristine">Update</md-button>
+            <md-checkbox ng-model="vm.personal.enabled" aria-label="Enable Bio" class="md-primary">
+                Enable for resume
+            </md-checkbox>
+        </md-card-action>
+    </md-card>
+</md-content>
