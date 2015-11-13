@@ -30,6 +30,7 @@ class DatabaseSeeder extends Seeder
 
         $this->call(ProvidersTableSeeder::class);
         $this->call(UserTableSeeder::class);
+        $this->call(SkillTypeTableSeeder::class);
 
         // and guard it again for testing or something
         Model::reguard();
